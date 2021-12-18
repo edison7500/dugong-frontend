@@ -19,6 +19,7 @@ export interface Tag {
 export interface IPost {
   slug: string,
   title: string,
+  digest: string,
   content: string,
   created_at_ts: number;
   tags?: Tag[]
