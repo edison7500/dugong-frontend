@@ -23,7 +23,7 @@ const Index = ({data}: InferGetServerSidePropsType<typeof getServerSideProps>): 
               <FontAwesomeIcon icon={faCalendarAlt} />
               <span className="ml-1 font-light">{created_at.format("yyyy-MM-DD")}</span>
             </div>
-
+            <hr className="my-4 text-slate-400"/>
             <ReactMarkdown className="prose prose-neutral font-light" remarkPlugins={[gfm]}>
               {_data.content}
             </ReactMarkdown>

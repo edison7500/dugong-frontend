@@ -1,6 +1,8 @@
-import {Fragment} from 'react'
+// import {Fragment} from 'react'
 import {Disclosure, Menu, Transition} from '@headlessui/react';
-import {BellIcon, MenuIcon, XIcon} from '@heroicons/react/outline';
+import {MenuIcon, XIcon} from '@heroicons/react/outline';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faPython} from "@fortawesome/free-brands-svg-icons";
 
 const navigation = [
   {name: '教程', href: '#', current: true},
@@ -36,18 +38,10 @@ const Index = () => {
                 </Disclosure.Button>
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                {/*<div className="flex-shrink-0 flex items-center">*/}
-                {/*  <img*/}
-                {/*    className="block lg:hidden h-8 w-auto"*/}
-                {/*    src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"*/}
-                {/*    alt="Workflow"*/}
-                {/*  />*/}
-                {/*  <img*/}
-                {/*    className="hidden lg:block h-8 w-auto"*/}
-                {/*    src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"*/}
-                {/*    alt="Workflow"*/}
-                {/*  />*/}
-                {/*</div>*/}
+                <div className="flex-shrink-0 flex items-center text-white">
+                  <FontAwesomeIcon icon={faPython} size="2x" className="h-8 w-auto mr-2"/>
+                  Python观察员
+                </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
@@ -73,10 +67,11 @@ const Index = () => {
                 className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button
                   type="button"
-                  className="bg-neutral-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                  className="bg-neutral-800
+                  py-1 px-2 text-gray-400 border-solid border-2 rounded-lg border-white hover:text-white "
                 >
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true"/>
+                  {/*<BellIcon className="h-6 w-6" aria-hidden="true"/>*/}
+                  <p className="text-sm" aria-hidden="true">Connect Wallet</p>
                 </button>
 
                 {/* Profile dropdown */}
