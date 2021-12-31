@@ -20,7 +20,7 @@ const Index = ({data}: InferGetServerSidePropsType<typeof getServerSideProps>): 
             <h1 className="mb-4 text-2xl font-bold">{_data.title}</h1>
 
             <div className="py-4 text-sm text-slate-400">
-              <FontAwesomeIcon icon={faCalendarAlt} />
+              <FontAwesomeIcon icon={faCalendarAlt}/>
               <span className="ml-1 font-light">{created_at.format("yyyy-MM-DD")}</span>
             </div>
             <hr className="my-4 text-slate-400"/>
@@ -35,10 +35,24 @@ const Index = ({data}: InferGetServerSidePropsType<typeof getServerSideProps>): 
 }
 
 export const getServerSideProps: GetServerSideProps = async ({query}) => {
+  let data = null
 
-  const url = `${apiBaseUrl}/api/posts/${query.slug}/`
-  const [res] = await Promise.all([fetch(url)])
-  const [data] = await Promise.all([res.json()])
+  try {
+
+    const url = `${apiBaseUrl}/api/posts/${query.slug}/`
+    const [res] = await Promise.all([fetch(url)])
+    if (res.status === 404) {
+      return {
+        redirect: {
+          destination: '404',
+          permanent: false,
+        },
+      }
+    }
+    [data] = await Promise.all([res.json()])
+  } catch (err: any) {
+    throw new Error(err)
+  }
 
   return {
     props: {

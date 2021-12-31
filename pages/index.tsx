@@ -18,8 +18,21 @@ export const getServerSideProps: GetServerSideProps = async (
   context
 ) => {
 
-  const res = await fetch(`${apiBaseUrl}/api/posts/`)
-  const data = await res.json()
+  let data = null
+  try {
+    const res = await fetch(`${apiBaseUrl}/api/posts/`)
+    data = await res.json()
+    if (res.status === 404) {
+      return {
+        redirect: {
+          destination: '404',
+          permanent: false,
+        }
+      }
+    }
+  } catch (err: any) {
+    throw new Error(err)
+  }
 
   return {
     props: {
@@ -29,9 +42,6 @@ export const getServerSideProps: GetServerSideProps = async (
 }
 
 const Home: NextPage = ({data}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const context = useWeb3React<Web3Provider>()
-  // console.log(context)
-  const { connector, library, chainId, account, activate, deactivate, active, error } = context
 
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
@@ -46,7 +56,6 @@ const Home: NextPage = ({data}: InferGetServerSidePropsType<typeof getServerSide
             ))}
           </div>
           <Aside/>
-
         </div>
       </Layout>
     </Web3ReactProvider>

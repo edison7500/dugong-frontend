@@ -1,11 +1,17 @@
 // import {Fragment} from 'react'
-import {Disclosure, Menu, Transition} from '@headlessui/react';
+import Link from 'next/link'
+import {Disclosure} from '@headlessui/react';
 import {MenuIcon, XIcon} from '@heroicons/react/outline';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPython} from "@fortawesome/free-brands-svg-icons";
+// import {useWeb3React} from "@web3-react/core";
+// import {Web3Provider} from "@ethersproject/providers";
+// import {useEffect, useState} from "react";
+// import {injected} from "../../lib/connectors";
+import ConnectWallet from "../user/connectWallet";
 
 const navigation = [
-  {name: '教程', href: '#', current: true},
+  {name: '教程', href: '#', current: false},
   {name: '博客', href: '#', current: false},
 ]
 
@@ -19,8 +25,9 @@ const classNames = ({classes}: { classes: any[] }) => {
 
 
 const Index = () => {
+
   return (
-    <Disclosure as="nav" className="bg-neutral-800">
+    <Disclosure as="nav" className="sticky top-0 z-30 bg-neutral-800">
       {({open}) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -38,10 +45,12 @@ const Index = () => {
                 </Disclosure.Button>
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex-shrink-0 flex items-center text-white">
-                  <FontAwesomeIcon icon={faPython} size="2x" className="h-8 w-auto mr-2"/>
-                  Python观察员
-                </div>
+                  <Link href="/">
+                    <a className="flex-shrink-0 flex items-center text-white hover:bg-neutral-700 px-3 rounded-md font-light">
+                      <FontAwesomeIcon icon={faPython} size="2x" className="h-8 w-auto mr-2"/>
+                      Python观察员
+                    </a>
+                  </Link>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
@@ -65,70 +74,7 @@ const Index = () => {
               </div>
               <div
                 className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
-                  type="button"
-                  className="bg-neutral-800
-                  py-1 px-2 text-gray-400 border-solid border-2 rounded-lg border-white hover:text-white "
-                >
-                  {/*<BellIcon className="h-6 w-6" aria-hidden="true"/>*/}
-                  <p className="text-sm" aria-hidden="true">Connect Wallet</p>
-                </button>
-
-                {/* Profile dropdown */}
-                {/*<Menu as="div" className="ml-3 relative">*/}
-                {/*  <div>*/}
-                {/*    <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">*/}
-                {/*      <span className="sr-only">Open user menu</span>*/}
-                {/*      <img*/}
-                {/*        className="h-8 w-8 rounded-full"*/}
-                {/*        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"*/}
-                {/*        alt=""*/}
-                {/*      />*/}
-                {/*    </Menu.Button>*/}
-                {/*  </div>*/}
-                {/*<Transition*/}
-                {/*  as={Fragment}*/}
-                {/*  enter="transition ease-out duration-100"*/}
-                {/*  enterFrom="transform opacity-0 scale-95"*/}
-                {/*  enterTo="transform opacity-100 scale-100"*/}
-                {/*  leave="transition ease-in duration-75"*/}
-                {/*  leaveFrom="transform opacity-100 scale-100"*/}
-                {/*  leaveTo="transform opacity-0 scale-95"*/}
-                {/*>*/}
-                {/*<Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">*/}
-                {/*  <Menu.Item>*/}
-                {/*    {({ active }) => (*/}
-                {/*      <a*/}
-                {/*        href="#"*/}
-                {/*        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}*/}
-                {/*      >*/}
-                {/*        Your Profile*/}
-                {/*      </a>*/}
-                {/*    )}*/}
-                {/*  </Menu.Item>*/}
-                {/*  <Menu.Item>*/}
-                {/*    {({ active }) => (*/}
-                {/*      <a*/}
-                {/*        href="#"*/}
-                {/*        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}*/}
-                {/*      >*/}
-                {/*        Settings*/}
-                {/*      </a>*/}
-                {/*    )}*/}
-                {/*  </Menu.Item>*/}
-                {/*  <Menu.Item>*/}
-                {/*    {({ active }) => (*/}
-                {/*      <a*/}
-                {/*        href="#"*/}
-                {/*        className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}*/}
-                {/*      >*/}
-                {/*        Sign out*/}
-                {/*      </a>*/}
-                {/*    )}*/}
-                {/*  </Menu.Item>*/}
-                {/*</Menu.Items>*/}
-                {/*</Transition>*/}
-                {/*</Menu>*/}
+                <ConnectWallet/>
               </div>
             </div>
           </div>
