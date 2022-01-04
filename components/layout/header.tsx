@@ -4,10 +4,6 @@ import {Disclosure} from '@headlessui/react';
 import {MenuIcon, XIcon} from '@heroicons/react/outline';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPython} from "@fortawesome/free-brands-svg-icons";
-// import {useWeb3React} from "@web3-react/core";
-// import {Web3Provider} from "@ethersproject/providers";
-// import {useEffect, useState} from "react";
-// import {injected} from "../../lib/connectors";
 import ConnectWallet from "../user/connectWallet";
 
 const navigation = [
@@ -45,12 +41,13 @@ const Index = () => {
                 </Disclosure.Button>
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                  <Link href="/">
-                    <a className="flex-shrink-0 flex items-center text-white hover:bg-neutral-700 px-3 rounded-md font-light">
-                      <FontAwesomeIcon icon={faPython} size="2x" className="h-8 w-auto mr-2"/>
-                      Python观察员
-                    </a>
-                  </Link>
+                <Link href="/">
+                  <a
+                    className="flex-shrink-0 flex items-center text-white hover:bg-neutral-700 px-3 rounded-md font-light">
+                    <FontAwesomeIcon icon={faPython} size="2x" className="h-8 w-auto mr-2"/>
+                    Python观察员
+                  </a>
+                </Link>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
@@ -73,7 +70,8 @@ const Index = () => {
                 </div>
               </div>
               <div
-                className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
+              >
                 <ConnectWallet/>
               </div>
             </div>

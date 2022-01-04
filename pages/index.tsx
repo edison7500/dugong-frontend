@@ -6,13 +6,10 @@ import {apiBaseUrl} from "../lib/constants";
 import Aside from "../components/layout/aside";
 
 import {Web3ReactProvider, useWeb3React, UnsupportedChainIdError} from '@web3-react/core'
-import {Web3Provider} from "@ethersproject/providers";
+import store from "../lib/store"
+import {Provider} from 'react-redux'
+import {getLibrary} from "../lib/connectors";
 
-const getLibrary = (provider: any): Web3Provider => {
-  const library = new Web3Provider(provider)
-  library.pollingInterval = 12000
-  return library
-}
 
 export const getServerSideProps: GetServerSideProps = async (
   context
@@ -45,19 +42,20 @@ const Home: NextPage = ({data}: InferGetServerSidePropsType<typeof getServerSide
 
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
-      <Layout>
-        <div className="container flex justify-between mx-auto">
-          <div className="w-full lg:w-8/12">
-            {/*<div className="columns-2">*/}
-            {data.map((post: IPost) => (
-              <>
-                <Post {...post}/>
-              </>
-            ))}
+      <Provider store={store}>
+        <Layout>
+          <div className="container flex justify-between mx-auto">
+            <div className="w-full lg:w-8/12">
+              {data.map((post: IPost) => (
+                <>
+                  <Post {...post}/>
+                </>
+              ))}
+            </div>
+            <Aside/>
           </div>
-          <Aside/>
-        </div>
-      </Layout>
+        </Layout>
+      </Provider>
     </Web3ReactProvider>
   )
 }
