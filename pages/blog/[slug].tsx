@@ -9,9 +9,36 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import store from "../../lib/store";
 
 import {Web3ReactProvider, useWeb3React, UnsupportedChainIdError} from '@web3-react/core'
-// import {Web3Provider} from "@ethersproject/providers";
 import {Provider} from 'react-redux'
 import {getLibrary} from "../../lib/connectors";
+
+
+export const getServerSideProps: GetServerSideProps = async ({query}) => {
+  let data = null
+
+  try {
+
+    const url = `${apiBaseUrl}/api/posts/${query.slug}/`
+    const [res] = await Promise.all([fetch(url)])
+    if (res.status === 404) {
+      return {
+        redirect: {
+          destination: '404',
+          permanent: false,
+        },
+      }
+    }
+    [data] = await Promise.all([res.json()])
+  } catch (err: any) {
+    throw new Error(err)
+  }
+
+  return {
+    props: {
+      data,
+    },
+  }
+}
 
 
 const Index = ({data}: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element => {
@@ -41,33 +68,6 @@ const Index = ({data}: InferGetServerSidePropsType<typeof getServerSideProps>): 
       </Provider>
     </Web3ReactProvider>
   )
-}
-
-export const getServerSideProps: GetServerSideProps = async ({query}) => {
-  let data = null
-
-  try {
-
-    const url = `${apiBaseUrl}/api/posts/${query.slug}/`
-    const [res] = await Promise.all([fetch(url)])
-    if (res.status === 404) {
-      return {
-        redirect: {
-          destination: '404',
-          permanent: false,
-        },
-      }
-    }
-    [data] = await Promise.all([res.json()])
-  } catch (err: any) {
-    throw new Error(err)
-  }
-
-  return {
-    props: {
-      data,
-    },
-  }
 }
 
 

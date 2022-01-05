@@ -1,6 +1,7 @@
-import {IPost, Tag} from "./interface";
+import {IPost, ITag} from "./interface";
 import moment from 'moment';
 import Link from "next/link";
+import Tag from "./_tag"
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCalendarAlt, faTags} from "@fortawesome/free-solid-svg-icons";
 
@@ -25,12 +26,9 @@ const Index = (post: IPost): JSX.Element => {
           <p className="text-sm text-gray-600">
             <FontAwesomeIcon icon={faTags} className="mr-2"/>
             {
-              post.tags?.map((tag: Tag) => (
-                <>
-                  <span className="font-light mx-2 p-1 rounded-md bg-gray-200 hover:text-white hover:bg-gray-400">
-                    {tag.name}
-                  </span>
-                </>
+              post.tags?.map((tag: ITag) => (
+                // eslint-disable-next-line react/jsx-key
+                <Tag {...tag}/>
               ))
             }
           </p>

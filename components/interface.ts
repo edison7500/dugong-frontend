@@ -12,8 +12,8 @@ export interface Props extends MetaProps {
   // description?: string
 }
 
-export interface Tag {
-  id:number
+export interface ITag {
+  // id:number
   slug: string
   name: string
 }
@@ -24,9 +24,9 @@ export interface IPost {
   digest: string,
   content: string,
   created_at_ts: number
-  tags?: Tag[]
+  tags?: ITag[]
 }
 
-export interface Posts {
-  posts: IPost[],
-}
+// export interface Posts {
+//   posts: IPost[],
+// }
