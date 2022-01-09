@@ -6,8 +6,6 @@ import Post from "../../components/post";
 import Aside from "../../components/layout/aside";
 // import {getLibrary} from "../../lib/connectors";
 // import store from "../../lib/store";
-
-
 import {Web3ReactProvider} from '@web3-react/core'
 import store from "../../lib/store"
 import {Provider} from 'react-redux'

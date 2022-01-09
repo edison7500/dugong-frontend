@@ -1,3 +1,4 @@
+import Link from "next/link"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faGithub} from "@fortawesome/free-brands-svg-icons";
 
@@ -29,9 +30,12 @@ const Index = () => {
                 focus:outline-none focus:ring-0 focus:bg-gray-200 focus:text-gray-600
                 transition
                 cursor-pointer">
-                <a href={`https://github.com/edison7500/${r}`} target="_blank" rel="noreferrer">
-                  <FontAwesomeIcon icon={faGithub}/><span className="ml-2">{r}</span>
-                </a>
+                <Link href={`https://github.com/edison7500/${r}`}>
+                  <a target="_blank" rel="noreferrer">
+                    <FontAwesomeIcon icon={faGithub}/><span className="ml-2">{r}</span>
+                  </a>
+                </Link>
+
               </div>
             </>
           ))
