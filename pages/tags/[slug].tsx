@@ -14,7 +14,6 @@ import {Provider} from 'react-redux'
 import {getLibrary} from "../../lib/connectors";
 
 
-
 const queryParams = (params: any) => {
   return Object.keys(params)
     .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
@@ -30,8 +29,6 @@ export const getServerSideProps: GetServerSideProps = async ({query}) => {
   const url = `${apiBaseUrl}/api/posts/?` + queryParams(params)
   console.log(url)
   try {
-    // let res;
-    // [res, data] = await Promise.all([fetch(url), res.json()]);
     const res = await fetch(url)
     data = await res.json()
   } catch (err: any) {

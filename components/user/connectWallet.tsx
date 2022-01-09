@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 import {useEagerConnect, useInactiveListener} from "../../lib/hooks";
 import {injected} from "../../lib/connectors";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faCubes} from "@fortawesome/free-solid-svg-icons";
 
 const ConnectWallet = () => {
@@ -31,7 +31,7 @@ const ConnectWallet = () => {
     }
   }
   // let blockNumber: number | undefined = 0
-  const [blockNumber, setBlockNumber] = useState<number| undefined>(0)
+  const [blockNumber, setBlockNumber] = useState<number | undefined>(0)
   Promise.resolve(library?.getBlockNumber()).then((r) => {
       setBlockNumber(r)
     }
@@ -48,11 +48,13 @@ const ConnectWallet = () => {
 
   return (
     <>
+      {!account ? "" :
+        <div className="mr-4 text-gray-400 hover:text-white">
+          <FontAwesomeIcon icon={faCubes}/>
+          <span className="ml-1">{blockNumber}</span>
+        </div>
+      }
 
-      <div className="mr-4 text-gray-400 hover:text-white">
-        <FontAwesomeIcon icon={faCubes}/>
-        <span className="ml-1">{blockNumber}</span>
-      </div>
       <button
         type="button"
         className="bg-neutral-800
