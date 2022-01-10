@@ -1,4 +1,5 @@
 import type {GetServerSideProps, InferGetServerSidePropsType, NextPage} from 'next'
+// import ReactPaginate from 'react-paginate';
 import Layout from "../components/layout/layout";
 import {IPost} from "../components/interface";
 import Post from "../components/post";
@@ -9,6 +10,7 @@ import {Web3ReactProvider, useWeb3React, UnsupportedChainIdError} from '@web3-re
 import store from "../lib/store"
 import {Provider} from 'react-redux'
 import {getLibrary} from "../lib/connectors";
+import Pagination from "../components/_pagination"
 
 
 export const getServerSideProps: GetServerSideProps = async (
@@ -16,8 +18,9 @@ export const getServerSideProps: GetServerSideProps = async (
 ) => {
 
   let data = null
+  const page = context.query.page || 1
   try {
-    const res = await fetch(`${apiBaseUrl}/api/posts/`)
+    const res = await fetch(`${apiBaseUrl}/api/posts/?page=${page}`)
     data = await res.json()
     if (res.status === 404) {
       return {
@@ -33,12 +36,18 @@ export const getServerSideProps: GetServerSideProps = async (
 
   return {
     props: {
-      data: data.results
+      data
     },
   }
 }
 
 const Home: NextPage = ({data}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+  // console.log(data)
+  const results = data.results
+  let pageCount = Math.ceil(data.count / 30)
+  if (data.count % 30 > 0) {
+    pageCount += 1
+  }
 
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
@@ -46,11 +55,14 @@ const Home: NextPage = ({data}: InferGetServerSidePropsType<typeof getServerSide
         <Layout>
           <div className="container flex justify-between mx-auto">
             <div className="w-full lg:w-8/12">
-              {data.map((post: IPost) => (
+              {results.map((post: IPost) => (
                 <>
                   <Post {...post}/>
                 </>
               ))}
+
+              <Pagination pageCount={pageCount}/>
+
             </div>
             <Aside/>
           </div>
