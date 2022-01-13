@@ -4,8 +4,9 @@ import {apiBaseUrl} from "../../lib/constants";
 import moment from 'moment';
 import ReactMarkdown from 'react-markdown'
 import gfm from 'remark-gfm'
-import {faCalendarAlt} from "@fortawesome/free-solid-svg-icons";
+// import {faCalendarAlt} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faClock} from "@fortawesome/free-regular-svg-icons"
 import store from "../../lib/store";
 
 import {Web3ReactProvider, useWeb3React, UnsupportedChainIdError} from '@web3-react/core'
@@ -45,24 +46,27 @@ const Index = ({data}: InferGetServerSidePropsType<typeof getServerSideProps>): 
   const _data = data
   const digest = `${_data.digest.slice(0, 100)}...`
   const created_at = moment.unix(_data.created_at_ts)
+  // const tagNumber = Number(_data.tags.length)
 
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
       <Provider store={store}>
         <Layout title={_data.title} description={digest}>
           <div className="container flex justify-center mx-auto">
-            <div className="bg-white py-6 px-8 rounded-lg shadow-md">
-              <h1 className="mb-4 text-2xl font-bold">{_data.title}</h1>
+            <div className="bg-white shrink w-8/12 py-6 px-8 rounded-lg shadow-md">
+              <h1 className="mb-4 text-3xl font-bold">{_data.title}</h1>
 
               <div className="py-4 text-sm text-slate-400">
-                <FontAwesomeIcon icon={faCalendarAlt}/>
+                <FontAwesomeIcon icon={faClock}/>
                 <span className="ml-1 font-light">{created_at.format("yyyy-MM-DD")}</span>
               </div>
               <hr className="my-4 text-slate-400"/>
-              <ReactMarkdown className="prose prose-neutral font-light" remarkPlugins={[gfm]}>
+
+              <ReactMarkdown className="prose prose-neutral font-light max-w-none" remarkPlugins={[gfm]}>
                 {_data.content}
               </ReactMarkdown>
             </div>
+
           </div>
         </Layout>
       </Provider>

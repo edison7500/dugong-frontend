@@ -31,7 +31,7 @@ const Index = () => {
                 transition
                 cursor-pointer">
                 <Link href={`https://github.com/edison7500/${r}`}>
-                  <a target="_blank" rel="noreferrer">
+                  <a target="_blank" rel="noreferrer" title={r} >
                     <FontAwesomeIcon icon={faGithub}/><span className="ml-2">{r}</span>
                   </a>
                 </Link>

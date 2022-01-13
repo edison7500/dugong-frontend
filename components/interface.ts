@@ -4,6 +4,7 @@ import {ReactNode} from "react";
 export interface MetaProps {
   title?: string,
   description?: string,
+  keyword?: string,
 }
 
 export interface Props extends MetaProps {
