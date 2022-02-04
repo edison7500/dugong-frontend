@@ -47,7 +47,7 @@ export const getServerSideProps: GetServerSideProps = async (
 const Tag = ({data}: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element => {
   const results = data.results
   let pageCount = Math.ceil(data.count / 30)
-  if (data.count % 30 > 0) {
+  if (data.count % 30 > 0 && pageCount > 1) {
     pageCount += 1
   }
   return (
@@ -62,7 +62,8 @@ const Tag = ({data}: InferGetServerSidePropsType<typeof getServerSideProps>): JS
               </div>
             ))}
 
-            <Pagination pageCount={pageCount}/>
+            {pageCount > 1? <Pagination pageCount={pageCount}/>: ""}
+
           </div>
           <Aside/>
         </div>

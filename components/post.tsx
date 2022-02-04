@@ -19,7 +19,9 @@ const Post = (post: IPost): JSX.Element => {
       {/* eslint-disable-next-line react/jsx-no-undef */}
       <h1>
         <Link href={`/blog/${post.slug}`}>
-          <a className="text-2xl font-bold text-gray-700 hover:underline" title={post.title}>{post.title}</a>
+          <a className="text-2xl font-bold text-gray-700 hover:underline" title={post.title}>
+            {post.title}
+          </a>
         </Link>
       </h1>
       <p className="mt-4 text-gray-500 font-light">
