@@ -7,7 +7,7 @@ interface Page {
   pageRangeDisplayed?: number | undefined
 }
 
-const Index = ({pageCount, marginPagesDisplayed, pageRangeDisplayed}: Page) => {
+const Pagination = ({pageCount, marginPagesDisplayed, pageRangeDisplayed}: Page) => {
   const router = useRouter()
   const currPage = Number(router.query.page) || 1
   //
@@ -58,4 +58,4 @@ const Index = ({pageCount, marginPagesDisplayed, pageRangeDisplayed}: Page) => {
 }
 
 
-export default Index;
+export default Pagination;

@@ -8,14 +8,8 @@ import {Web3ReactProvider} from '@web3-react/core'
 // import store from "../../lib/store"
 // import {Provider} from 'react-redux'
 import {getLibrary} from "../../lib/connectors";
+import {queryParams} from "../../lib/utils";
 import Pagination from "../../components/_pagination";
-
-
-const queryParams = (params: any) => {
-  return Object.keys(params)
-    .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
-    .join('&');
-}
 
 
 export const getServerSideProps: GetServerSideProps = async (
@@ -56,13 +50,14 @@ const Tag = ({data}: InferGetServerSidePropsType<typeof getServerSideProps>): JS
       <Layout>
         <div className="container flex justify-between mx-auto">
           <div className="w-full lg:w-8/12">
+
             {results.map((post: IPost) => (
               <div className="mt-6" key={post.slug}>
                 <Post {...post}/>
               </div>
             ))}
 
-            {pageCount > 1? <Pagination pageCount={pageCount}/>: ""}
+            {pageCount > 1 ? <Pagination pageCount={pageCount}/> : ""}
 
           </div>
           <Aside/>
