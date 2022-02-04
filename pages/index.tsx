@@ -2,13 +2,13 @@ import type {GetServerSideProps, InferGetServerSidePropsType, NextPage} from 'ne
 // import ReactPaginate from 'react-paginate';
 import Layout from "../components/layout/layout";
 import {IPost} from "../components/interface";
-import Post from "../components/post";
 import {apiBaseUrl} from "../lib/constants";
 import Aside from "../components/layout/aside";
+import Post from "../components/post";
 
 import {Web3ReactProvider, useWeb3React, UnsupportedChainIdError} from '@web3-react/core'
-import store from "../lib/store"
-import {Provider} from 'react-redux'
+// import store from "../lib/store"
+// import {Provider} from 'react-redux'
 import {getLibrary} from "../lib/connectors";
 import Pagination from "../components/_pagination"
 
@@ -42,7 +42,6 @@ export const getServerSideProps: GetServerSideProps = async (
 }
 
 const Home: NextPage = ({data}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  // console.log(data)
   const results = data.results
   let pageCount = Math.ceil(data.count / 30)
   if (data.count % 30 > 0) {
@@ -51,23 +50,23 @@ const Home: NextPage = ({data}: InferGetServerSidePropsType<typeof getServerSide
 
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
-      <Provider store={store}>
-        <Layout>
-          <div className="container flex justify-between mx-auto">
-            <div className="w-full lg:w-8/12">
-              {results.map((post: IPost) => (
-                <>
-                  <Post {...post}/>
-                </>
-              ))}
-
-              <Pagination pageCount={pageCount}/>
-
-            </div>
-            <Aside/>
+      {/*<Provider store={store}>*/}
+      <Layout>
+        <div className="container flex justify-between mx-auto">
+          <div className="w-full lg:w-8/12">
+            {results.map((post: IPost) => (
+              <div className="mt-6" key={post.slug}>
+                <Post {...post}/>
+              </div>
+            ))}
+            <Pagination pageCount={pageCount}/>
           </div>
-        </Layout>
-      </Provider>
+
+          <Aside/>
+
+        </div>
+      </Layout>
+      {/*</Provider>*/}
     </Web3ReactProvider>
   )
 }

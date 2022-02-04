@@ -2,7 +2,7 @@ import Link from "next/link"
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faGithub} from "@fortawesome/free-brands-svg-icons";
 
-const Index = () => {
+const Github = () => {
   const repos = [
     "dugong",
     "django-leancloud-sms",
@@ -35,7 +35,6 @@ const Index = () => {
                     <FontAwesomeIcon icon={faGithub}/><span className="ml-2">{r}</span>
                   </a>
                 </Link>
-
               </div>
             </>
           ))
@@ -45,4 +44,4 @@ const Index = () => {
   )
 }
 
-export default Index;
+export default Github;

@@ -32,14 +32,14 @@ module.exports = {
   trailingSlash: true,
   poweredByHeader: false,
   compress: false,
-  async headers() {
-    return [
-      {
-        // Apply these headers to all routes in your application.
-        source: '/(.*)',
-        headers: securityHeaders,
-      },
-    ]
-  },
+  // async headers() {
+  //   return [
+  //     {
+  //       // Apply these headers to all routes in your application.
+  //       source: '/(.*)',
+  //       headers: securityHeaders,
+  //     },
+  //   ]
+  // },
   reactStrictMode: true,
 }

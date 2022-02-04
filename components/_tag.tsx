@@ -1,7 +1,7 @@
 import Link from "next/link"
 import {ITag} from "./interface"
 
-const Index = (tag: ITag): JSX.Element => {
+const Tag = (tag: ITag): JSX.Element => {
 
   return (
     <>
@@ -17,4 +17,4 @@ const Index = (tag: ITag): JSX.Element => {
   )
 }
 
-export default Index;
+export default Tag;

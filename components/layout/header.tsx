@@ -8,7 +8,7 @@ import ConnectWallet from "../user/connectWallet";
 
 const navigation = [
   {name: '教程', href: '#', current: false},
-  {name: '博客', href: '#', current: false},
+  // {name: '博客', href: '#', current: false},
 ]
 
 // function classNames({classes}: { classes?: any[] }) {
@@ -20,7 +20,7 @@ const classNames = ({classes}: { classes: any[] }) => {
 }
 
 
-const Index = () => {
+const Header = () => {
 
   return (
     <Disclosure as="nav" className="sticky top-0 z-30 bg-neutral-800">
@@ -82,4 +82,4 @@ const Index = () => {
   )
 }
 
-export default Index;
+export default Header;

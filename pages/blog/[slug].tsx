@@ -1,4 +1,5 @@
 import {GetServerSideProps, InferGetServerSidePropsType} from "next";
+import {BreadcrumbJsonLd} from 'next-seo';
 import Layout from "../../components/layout/layout";
 import {apiBaseUrl} from "../../lib/constants";
 import moment from 'moment';
@@ -7,10 +8,10 @@ import gfm from 'remark-gfm'
 // import {faCalendarAlt} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faClock} from "@fortawesome/free-regular-svg-icons"
-import store from "../../lib/store";
+// import store from "../../lib/store";
 
 import {Web3ReactProvider, useWeb3React, UnsupportedChainIdError} from '@web3-react/core'
-import {Provider} from 'react-redux'
+// import {Provider} from 'react-redux'
 import {getLibrary} from "../../lib/connectors";
 
 
@@ -50,26 +51,27 @@ const Index = ({data}: InferGetServerSidePropsType<typeof getServerSideProps>): 
 
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
-      <Provider store={store}>
-        <Layout title={_data.title} description={digest}>
-          <div className="container flex justify-center mx-auto">
-            <div className="bg-white shrink w-8/12 py-6 px-8 rounded-lg shadow-md">
-              <h1 className="mb-4 text-3xl font-bold">{_data.title}</h1>
+      {/*<Provider store={store}>*/}
+      <Layout title={_data.title} description={digest} canonical={`https://jiaxin.im/blog/${_data.slug}`}>
+        <div className="container flex justify-center mx-auto">
 
-              <div className="py-4 text-sm text-slate-400">
-                <FontAwesomeIcon icon={faClock}/>
-                <span className="ml-1 font-light">{created_at.format("yyyy-MM-DD")}</span>
-              </div>
-              <hr className="my-4 text-slate-400"/>
+          <div className="bg-white shrink w-8/12 py-6 px-8 rounded-lg shadow-md">
+            <h1 className="mb-4 text-3xl font-bold">{_data.title}</h1>
 
-              <ReactMarkdown className="prose prose-neutral font-light max-w-none" remarkPlugins={[gfm]}>
-                {_data.content}
-              </ReactMarkdown>
+            <div className="py-4 text-sm text-slate-400">
+              <FontAwesomeIcon icon={faClock}/>
+              <span className="ml-1 font-light">{created_at.format("yyyy-MM-DD")}</span>
             </div>
+            <hr className="my-4 text-slate-400"/>
 
+            <ReactMarkdown className="prose prose-neutral font-light max-w-none" remarkPlugins={[gfm]}>
+              {_data.content}
+            </ReactMarkdown>
           </div>
-        </Layout>
-      </Provider>
+
+        </div>
+      </Layout>
+      {/*</Provider>*/}
     </Web3ReactProvider>
   )
 }

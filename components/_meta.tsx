@@ -4,7 +4,7 @@ import {MetaProps} from "./interface";
 import {NextSeo} from 'next-seo';
 
 
-const Index = ({title, description}: MetaProps): JSX.Element => {
+const Meta = ({title, description}: MetaProps): JSX.Element => {
   return (
     <>
       <Head>
@@ -27,4 +27,4 @@ const Index = ({title, description}: MetaProps): JSX.Element => {
   )
 }
 
-export default Index
+export default Meta

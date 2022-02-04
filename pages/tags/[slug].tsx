@@ -4,12 +4,11 @@ import Layout from "../../components/layout/layout";
 import {IPost} from "../../components/interface";
 import Post from "../../components/post";
 import Aside from "../../components/layout/aside";
-// import {getLibrary} from "../../lib/connectors";
-// import store from "../../lib/store";
 import {Web3ReactProvider} from '@web3-react/core'
-import store from "../../lib/store"
-import {Provider} from 'react-redux'
+// import store from "../../lib/store"
+// import {Provider} from 'react-redux'
 import {getLibrary} from "../../lib/connectors";
+import Pagination from "../../components/_pagination";
 
 
 const queryParams = (params: any) => {
@@ -19,10 +18,14 @@ const queryParams = (params: any) => {
 }
 
 
-export const getServerSideProps: GetServerSideProps = async ({query}) => {
+export const getServerSideProps: GetServerSideProps = async (
+  context
+) => {
   let data = null
+  const page = context.query.page || 1
   const params = {
-    tags__slug: query.slug
+    tags__slug: context.query.slug,
+    page: page,
   }
   const url = `${apiBaseUrl}/api/posts/?` + queryParams(params)
   console.log(url)
@@ -35,32 +38,39 @@ export const getServerSideProps: GetServerSideProps = async ({query}) => {
 
   return {
     props: {
-      data: data.results
+      data
     }
   }
 }
 
 
-const Index = ({data}: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element => {
+const Tag = ({data}: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element => {
+  const results = data.results
+  let pageCount = Math.ceil(data.count / 30)
+  if (data.count % 30 > 0) {
+    pageCount += 1
+  }
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
-      <Provider store={store}>
+      {/*<Provider store={store}>*/}
       <Layout>
         <div className="container flex justify-between mx-auto">
           <div className="w-full lg:w-8/12">
-            {data.map((post: IPost) => (
-              <>
+            {results.map((post: IPost) => (
+              <div className="mt-6" key={post.slug}>
                 <Post {...post}/>
-              </>
+              </div>
             ))}
+
+            <Pagination pageCount={pageCount}/>
           </div>
           <Aside/>
         </div>
       </Layout>
-      </Provider>
+      {/*</Provider>*/}
     </Web3ReactProvider>
   )
 }
 
 
-export default Index;
+export default Tag;
