@@ -5,11 +5,6 @@ import {IPost} from "../components/interface";
 import {apiBaseUrl} from "../lib/constants";
 import Aside from "../components/layout/aside";
 import Post from "../components/post";
-
-import {Web3ReactProvider, useWeb3React, UnsupportedChainIdError} from '@web3-react/core'
-// import store from "../lib/store"
-// import {Provider} from 'react-redux'
-import {getLibrary} from "../lib/connectors";
 import Pagination from "../components/_pagination"
 
 
@@ -49,8 +44,7 @@ const Home: NextPage = ({data}: InferGetServerSidePropsType<typeof getServerSide
   }
 
   return (
-    <Web3ReactProvider getLibrary={getLibrary}>
-      {/*<Provider store={store}>*/}
+    // <Web3ReactProvider getLibrary={getLibrary}>
       <Layout>
         <div className="container flex justify-between mx-auto">
           <div className="w-full lg:w-8/12">
@@ -66,8 +60,7 @@ const Home: NextPage = ({data}: InferGetServerSidePropsType<typeof getServerSide
 
         </div>
       </Layout>
-      {/*</Provider>*/}
-    </Web3ReactProvider>
+    // </Web3ReactProvider>
   )
 }
 

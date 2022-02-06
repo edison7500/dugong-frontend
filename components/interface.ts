@@ -29,6 +29,13 @@ export interface IPost {
   tags?: ITag[]
 }
 
-// export interface Posts {
-//   posts: IPost[],
-// }
+export interface Tutotial {
+  slug: string,
+  cover_url: string,
+  title: string,
+  content: string,
+  created_at_ts: number,
+  published_at: string,
+  tags?: ITag[]
+  origin_link?: string,
+}

@@ -4,10 +4,10 @@ import {Disclosure} from '@headlessui/react';
 import {MenuIcon, XIcon} from '@heroicons/react/outline';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPython} from "@fortawesome/free-brands-svg-icons";
-import ConnectWallet from "../user/connectWallet";
+// import ConnectWallet from "../user/connectWallet";
 
 const navigation = [
-  {name: '教程', href: '#', current: false},
+  {name: '教程', href: 'tutorials/', current: false},
   // {name: '博客', href: '#', current: false},
 ]
 
@@ -72,7 +72,7 @@ const Header = () => {
               <div
                 className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
               >
-                <ConnectWallet/>
+                {/*<ConnectWallet/>*/}
               </div>
             </div>
           </div>

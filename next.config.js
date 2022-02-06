@@ -41,5 +41,8 @@ module.exports = {
   //     },
   //   ]
   // },
+  images: {
+    domains: ['img.jiaxin.im', "static.jiaxin.im"]
+  },
   reactStrictMode: true,
 }
