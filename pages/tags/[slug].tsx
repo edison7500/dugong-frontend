@@ -22,7 +22,6 @@ export const getServerSideProps: GetServerSideProps = async (
     page: page,
   }
   const url = `${apiBaseUrl}/api/posts/?` + queryParams(params)
-  console.log(url)
   try {
     const res = await fetch(url)
     data = await res.json()

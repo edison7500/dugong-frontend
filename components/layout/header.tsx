@@ -7,7 +7,7 @@ import {faPython} from "@fortawesome/free-brands-svg-icons";
 // import ConnectWallet from "../user/connectWallet";
 
 const navigation = [
-  {name: '教程', href: 'tutorials/', current: false},
+  {name: '教程', href: '/tutorials/', current: false},
   // {name: '博客', href: '#', current: false},
 ]
 
@@ -18,7 +18,6 @@ const navigation = [
 const classNames = ({classes}: { classes: any[] }) => {
   return classes.filter(Boolean).join(" ")
 }
-
 
 const Header = () => {
 

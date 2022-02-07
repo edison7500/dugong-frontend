@@ -1,10 +1,9 @@
 import Layout from "../components/layout/layout";
 import {apiBaseUrl} from "../lib/constants";
 import {GetServerSideProps, InferGetServerSidePropsType, NextPage} from "next";
-import {Tutotial} from "../components/interface";
+import {Tutorial} from "../components/interface";
 import TutorialCell from "../components/_tutorial";
 import Pagination from "../components/_pagination";
-import Tutorial from "../components/_tutorial";
 
 
 export const getServerSideProps: GetServerSideProps = async (
@@ -48,7 +47,7 @@ const Tutorials: NextPage = ({data}: InferGetServerSidePropsType<typeof getServe
       <div className="container px-5 mx-auto">
 
         <div className="flex flex-wrap -m-4">
-          {results.map((tutotial: Tutotial) => (
+          {results.map((tutotial: Tutorial) => (
             <div className="p-4 md:w-1/3" key={tutotial.slug}>
               <TutorialCell {...tutotial}/>
             </div>

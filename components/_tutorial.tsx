@@ -1,7 +1,8 @@
-import {Tutotial} from "./interface";
+import {Tutorial} from "./interface";
 import Image from 'next/image';
+import Link from "next/link";
 
-const Tutorial = (tutorial: Tutotial): JSX.Element => {
+const Tutorial = (tutorial: Tutorial): JSX.Element => {
 
   const _cover_url = tutorial.cover_url ? tutorial.cover_url : ""
   console.log(_cover_url)
@@ -19,10 +20,13 @@ const Tutorial = (tutorial: Tutotial): JSX.Element => {
                priority
         />
         <div className="p-6">
-
-          <h1 className="text-2l font-bold text-gray-700 hover:underline">
-            {tutorial.title}
-          </h1>
+          <Link href={`tutorials/${tutorial.slug}`}>
+            <a title={tutorial.title}>
+              <h1 className="text-2l font-bold text-gray-700 hover:underline">
+                {tutorial.title}
+              </h1>
+            </a>
+          </Link>
         </div>
       </div>
     </>

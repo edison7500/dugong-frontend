@@ -1,18 +1,12 @@
 import {GetServerSideProps, InferGetServerSidePropsType} from "next";
-import {BreadcrumbJsonLd} from 'next-seo';
+// import {BreadcrumbJsonLd} from 'next-seo';
 import Layout from "../../components/layout/layout";
 import {apiBaseUrl} from "../../lib/constants";
 import moment from 'moment';
 import ReactMarkdown from 'react-markdown'
 import gfm from 'remark-gfm'
-// import {faCalendarAlt} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faClock} from "@fortawesome/free-regular-svg-icons"
-// import store from "../../lib/store";
-
-import {Web3ReactProvider, useWeb3React, UnsupportedChainIdError} from '@web3-react/core'
-// import {Provider} from 'react-redux'
-import {getLibrary} from "../../lib/connectors";
 
 
 export const getServerSideProps: GetServerSideProps = async ({query}) => {
@@ -50,8 +44,6 @@ const Index = ({data}: InferGetServerSidePropsType<typeof getServerSideProps>): 
   // const tagNumber = Number(_data.tags.length)
 
   return (
-    <Web3ReactProvider getLibrary={getLibrary}>
-      {/*<Provider store={store}>*/}
       <Layout title={_data.title} description={digest} canonical={`https://jiaxin.im/blog/${_data.slug}`}>
         <div className="container flex justify-center mx-auto">
 
@@ -71,10 +63,7 @@ const Index = ({data}: InferGetServerSidePropsType<typeof getServerSideProps>): 
 
         </div>
       </Layout>
-      {/*</Provider>*/}
-    </Web3ReactProvider>
   )
 }
-
 
 export default Index;

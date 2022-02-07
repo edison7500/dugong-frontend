@@ -29,7 +29,7 @@ export interface IPost {
   tags?: ITag[]
 }
 
-export interface Tutotial {
+export interface Tutorial {
   slug: string,
   cover_url: string,
   title: string,
