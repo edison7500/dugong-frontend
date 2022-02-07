@@ -20,7 +20,7 @@ const Tutorial = (tutorial: Tutorial): JSX.Element => {
                priority
         />
         <div className="p-6">
-          <Link href={`tutorials/${tutorial.slug}`}>
+          <Link href={`/tutorials/${tutorial.slug}`}>
             <a title={tutorial.title}>
               <h1 className="text-2l font-bold text-gray-700 hover:underline">
                 {tutorial.title}
