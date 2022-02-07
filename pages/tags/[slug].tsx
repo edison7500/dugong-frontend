@@ -4,10 +4,6 @@ import Layout from "../../components/layout/layout";
 import {IPost} from "../../components/interface";
 import Post from "../../components/post";
 import Aside from "../../components/layout/aside";
-import {Web3ReactProvider} from '@web3-react/core'
-// import store from "../../lib/store"
-// import {Provider} from 'react-redux'
-import {getLibrary} from "../../lib/connectors";
 import {queryParams} from "../../lib/utils";
 import Pagination from "../../components/_pagination";
 
@@ -44,26 +40,22 @@ const Tag = ({data}: InferGetServerSidePropsType<typeof getServerSideProps>): JS
     pageCount += 1
   }
   return (
-    <Web3ReactProvider getLibrary={getLibrary}>
-      {/*<Provider store={store}>*/}
-      <Layout>
-        <div className="container flex justify-between mx-auto">
-          <div className="w-full lg:w-8/12">
+    <Layout>
+      <div className="container flex justify-between mx-auto">
+        <div className="w-full lg:w-8/12">
 
-            {results.map((post: IPost) => (
-              <div className="mt-6" key={post.slug}>
-                <Post {...post}/>
-              </div>
-            ))}
+          {results.map((post: IPost) => (
+            <div className="mt-6" key={post.slug}>
+              <Post {...post}/>
+            </div>
+          ))}
 
-            {pageCount > 1 ? <Pagination pageCount={pageCount}/> : ""}
+          {pageCount > 1 ? <Pagination pageCount={pageCount}/> : ""}
 
-          </div>
-          <Aside/>
         </div>
-      </Layout>
-      {/*</Provider>*/}
-    </Web3ReactProvider>
+        <Aside/>
+      </div>
+    </Layout>
   )
 }
 

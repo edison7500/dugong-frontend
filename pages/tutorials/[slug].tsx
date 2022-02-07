@@ -8,7 +8,6 @@ import {faClock} from "@fortawesome/free-regular-svg-icons";
 import {faExternalLinkAlt} from "@fortawesome/free-solid-svg-icons";
 import moment from "moment";
 import Link from "next/link";
-// import {Tutorial} from "../../components/interface";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   let data;
