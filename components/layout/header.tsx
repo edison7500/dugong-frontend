@@ -4,22 +4,19 @@ import {Disclosure} from '@headlessui/react';
 import {MenuIcon, XIcon} from '@heroicons/react/outline';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPython} from "@fortawesome/free-brands-svg-icons";
-// import ConnectWallet from "../user/connectWallet";
+// import {faInfo} from "@fortawesome/free-solid-svg-icons";
 
-const navigation = [
-  {name: '教程', href: '/tutorials/', current: false},
-  // {name: '博客', href: '#', current: false},
-]
-
-// function classNames({classes}: { classes?: any[] }) {
-//   return classes.filter(Boolean).join(' ')
-// }
 
 const classNames = ({classes}: { classes: any[] }) => {
   return classes.filter(Boolean).join(" ")
 }
 
 const Header = () => {
+
+  const navigation = [
+    {name: '教程', href: '/tutorials/', current: false},
+    // {name: '博客', href: '#', current: false},
+  ]
 
   return (
     <Disclosure as="nav" className="sticky top-0 z-30 bg-neutral-800">
@@ -50,29 +47,38 @@ const Header = () => {
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className={classNames(
-                          {
-                            classes:
-                              [item.current ? 'bg-neutral-900 text-white' : 'bg-neutral-800 text-white hover:bg-neutral-700 hover:text-white',
-                                'px-3 py-2 rounded-md text-base font-light']
-                          }
-                        )}
-                        aria-current={item.current ? 'page' : undefined}
-                      >
-                        {item.name}
-                      </a>
+                      <Link href={item.href} key={item.name}>
+                        <a
+                          className={classNames(
+                            {
+                              classes:
+                                [item.current ? 'bg-neutral-900 text-white' : 'bg-neutral-800 text-white hover:bg-neutral-700 hover:text-white',
+                                  'px-3 py-2 rounded-md text-base font-light']
+                            }
+                          )}
+                          aria-current={item.current ? 'page' : undefined}
+                        >
+                          {item.name}
+                        </a>
+                      </Link>
+
                     ))}
                   </div>
                 </div>
               </div>
-              <div
-                className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
-              >
-                {/*<ConnectWallet/>*/}
-              </div>
+              {/*<div*/}
+              {/*  className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"*/}
+              {/*>*/}
+              {/*  <Link href="/about/">*/}
+              {/*    <a title="关于"*/}
+              {/*       className="p-2 bg-neutral-800 text-white rounded-md hover:bg-neutral-700 hover:text-white"*/}
+              {/*    >*/}
+              {/*      <FontAwesomeIcon icon={faInfo}/>*/}
+              {/*      <span className="ml-2">关于</span>*/}
+              {/*    </a>*/}
+              {/*  </Link>*/}
+
+              {/*</div>*/}
             </div>
           </div>
         </>

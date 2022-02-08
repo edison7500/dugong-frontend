@@ -4,6 +4,7 @@ import {GetServerSideProps, InferGetServerSidePropsType, NextPage} from "next";
 import {Tutorial} from "../components/interface";
 import TutorialCell from "../components/_tutorial";
 import Pagination from "../components/_pagination";
+import {queryParams} from "../lib/utils";
 
 
 export const getServerSideProps: GetServerSideProps = async (
@@ -12,8 +13,12 @@ export const getServerSideProps: GetServerSideProps = async (
 
   let data = null
   const page = context.query.page || 1
+  const params = {
+    page: page,
+    size: 12,
+  }
   try {
-    const res = await fetch(`${apiBaseUrl}/api/tutorials/?page=${page}`)
+    const res = await fetch(`${apiBaseUrl}/api/tutorials/?${queryParams(params)}`)
     data = await res.json()
     if (res.status === 404) {
       return {
@@ -36,7 +41,6 @@ export const getServerSideProps: GetServerSideProps = async (
 
 const Tutorials: NextPage = ({data}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const results = data.results
-  console.log(results)
   let pageCount = Math.ceil(data.count / 30)
   if (data.count % 30 > 0 && data.count > 1) {
     pageCount += 1
