@@ -1,7 +1,7 @@
 module.exports = {
   "apps": [
     {
-      "name": "corona-frontend",
+      "name": "dugong-frontend",
       "script": "/app/node_modules/.bin/next start",
       "cwd": "/app",
       "log_date_format": "YYYY-MM-DD HH:mm Z",
