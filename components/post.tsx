@@ -10,7 +10,7 @@ import {faClock} from "@fortawesome/free-regular-svg-icons"
 const Post = (post: IPost): JSX.Element => {
 
   const created_at = moment.unix(post.created_at_ts)
-  const digest = post.digest.slice(0, 100)
+  const digest = post.digest
   const tagNumber = Number(post.tags?.length)
 
   return (
