@@ -4,6 +4,7 @@ import {Disclosure} from '@headlessui/react';
 import {MenuIcon, XIcon} from '@heroicons/react/outline';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPython} from "@fortawesome/free-brands-svg-icons";
+import {faSearch} from "@fortawesome/free-solid-svg-icons";
 // import {faInfo} from "@fortawesome/free-solid-svg-icons";
 
 
@@ -66,19 +67,17 @@ const Header = () => {
                   </div>
                 </div>
               </div>
-              {/*<div*/}
-              {/*  className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"*/}
-              {/*>*/}
-              {/*  <Link href="/about/">*/}
-              {/*    <a title="关于"*/}
-              {/*       className="p-2 bg-neutral-800 text-white rounded-md hover:bg-neutral-700 hover:text-white"*/}
-              {/*    >*/}
-              {/*      <FontAwesomeIcon icon={faInfo}/>*/}
-              {/*      <span className="ml-2">关于</span>*/}
-              {/*    </a>*/}
-              {/*  </Link>*/}
 
-              {/*</div>*/}
+              <div
+                className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
+              >
+                <form action={"/search/"} className="hidden relative mr-3 md:mr-0 md:block text-gray-400">
+                  <div className="flex absolute inset-y-0 left-0 items-center pl-3">
+                    <FontAwesomeIcon icon={faSearch}/>
+                  </div>
+                  <input className="block p-2 pl-10 w-full rounded-md text-gray-800" name="q" type="text" placeholder="Search..."/>
+                </form>
+              </div>
             </div>
           </div>
         </>
@@ -88,3 +87,4 @@ const Header = () => {
 }
 
 export default Header;
+

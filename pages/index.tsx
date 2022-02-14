@@ -7,7 +7,6 @@ import Aside from "../components/layout/aside";
 import Post from "../components/post";
 import Pagination from "../components/_pagination"
 
-
 export const getServerSideProps: GetServerSideProps = async (
   context
 ) => {
@@ -45,21 +44,22 @@ const Home: NextPage = ({data}: InferGetServerSidePropsType<typeof getServerSide
 
   return (
     // <Web3ReactProvider getLibrary={getLibrary}>
-      <Layout>
-        <div className="container flex justify-between mx-auto">
-          <div className="w-full lg:w-8/12">
-            {results.map((post: IPost) => (
-              <div className="mt-6" key={post.slug}>
-                <Post {...post}/>
-              </div>
-            ))}
-            <Pagination pageCount={pageCount}/>
-          </div>
+    <Layout>
+      <div className="container flex justify-between mx-auto">
+        <div className="w-full lg:w-8/12">
 
-          <Aside/>
-
+          {results.map((post: IPost) => (
+            <div className="mt-6" key={post.slug}>
+              <Post {...post}/>
+            </div>
+          ))}
+          <Pagination pageCount={pageCount}/>
         </div>
-      </Layout>
+
+        <Aside/>
+
+      </div>
+    </Layout>
     // </Web3ReactProvider>
   )
 }
