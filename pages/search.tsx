@@ -4,10 +4,12 @@ import {apiBaseUrl} from "../lib/constants";
 import {queryParams} from "../lib/utils";
 import {IPost} from "../components/interface";
 import Post from "../components/post";
+import Pagination from "../components/_pagination";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 
   let data = null
+  let pageCount = 0
   const page = context.query.page || 1
   const q = context.query.q
   const params = {
@@ -18,6 +20,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   try {
     const res = await fetch(`${apiBaseUrl}/api/posts/?${queryParams(params)}`)
     data = await res.json()
+
+    pageCount = Math.ceil(data.count / 30)
+    if (data.count % 30 > 0 && data.count > 1) {
+      pageCount += 1
+    }
 
     if (res.status === 404) {
       return {
@@ -35,6 +42,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
       results: data.results,
+      pageCount: pageCount,
       q: q,
     }
   }
@@ -42,6 +50,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 const Search: NextPage = (data: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const results = data.results
+  const q = data.q
+  const pageCount = data.pageCount
 
   return (
     <Layout>
@@ -53,6 +63,8 @@ const Search: NextPage = (data: InferGetServerSidePropsType<typeof getServerSide
               <Post {...post}/>
             </div>
           ))}
+
+          {pageCount > 1 ? <Pagination pageCount={pageCount}/> : ""}
 
         </div>
       </div>
