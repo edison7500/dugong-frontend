@@ -47,7 +47,7 @@ const Index = ({data}: InferGetServerSidePropsType<typeof getServerSideProps>): 
   const tagNumber = Number(_data.tags.length)
 
   return (
-      <Layout title={_data.title} description={digest} canonical={`https://jiaxin.im/blog/${_data.slug}`}>
+      <Layout title={`${_data.title} | Python 观察员`} description={digest} canonical={`https://jiaxin.im/blog/${_data.slug}`}>
         <div className="container flex justify-center mx-auto">
 
           <div className="bg-white shrink w-8/12 p-8 rounded-lg shadow-md">
