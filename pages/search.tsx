@@ -7,6 +7,7 @@ import Post from "../components/post";
 import Pagination from "../components/_pagination";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faSearch} from "@fortawesome/free-solid-svg-icons";
+import {useState} from "react";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 
@@ -52,11 +53,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 const Search: NextPage = (data: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const results = data.results
-  const q = data.q
+
+  const [query, setQuery] = useState(data.q);
   const pageCount = data.pageCount
 
   return (
-    <Layout title={`${q} | Python 观察员`}>
+    <Layout title={`${query} | Python 观察员`}>
       <div className="container flex justify-center mx-auto">
         <div className="w-full lg:w-8/12">
 
@@ -68,6 +70,12 @@ const Search: NextPage = (data: InferGetServerSidePropsType<typeof getServerSide
               <input className="p-2 block text-md mx-auto w-full bg-white rounded-r-md focus:ring-0"
                      placeholder={'Search...'}
                      name="q"
+                     value={query}
+                     onInput={(e) => {
+                       // @ts-ignore
+                       setQuery(e.target.value)
+                       // console.log(e.target)
+                     }}
               />
             </div>
           </form>
