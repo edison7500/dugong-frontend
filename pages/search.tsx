@@ -5,13 +5,15 @@ import {queryParams} from "../lib/utils";
 import {IPost} from "../components/interface";
 import Post from "../components/post";
 import Pagination from "../components/_pagination";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faSearch} from "@fortawesome/free-solid-svg-icons";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
 
   let data = null
   let pageCount = 0
   const page = context.query.page || 1
-  const q = context.query.q
+  const q = context.query.q || null
   const params = {
     page: page,
     q: q
@@ -53,12 +55,22 @@ const Search: NextPage = (data: InferGetServerSidePropsType<typeof getServerSide
   const q = data.q
   const pageCount = data.pageCount
 
-  console.log(pageCount)
-
   return (
-    <Layout title={q}>
+    <Layout title={`${q} | Python 观察员`}>
       <div className="container flex justify-center mx-auto">
         <div className="w-full lg:w-8/12">
+
+          <form className='max-w-2xl mx-auto mb-10' action={'/search/'} method={`GET`}>
+            <div className="flex">
+                <span className="inline-flex items-center px-3 bg-white rounded-l-md text-gray-400">
+                  <FontAwesomeIcon icon={faSearch}/>
+                </span>
+              <input className="p-2 block text-md mx-auto w-full bg-white rounded-r-md focus:ring-0"
+                     placeholder={'Search...'}
+                     name="q"
+              />
+            </div>
+          </form>
 
           {results.map((post: IPost) => (
             <div className="mt-6" key={post.slug}>
@@ -75,3 +87,16 @@ const Search: NextPage = (data: InferGetServerSidePropsType<typeof getServerSide
 }
 
 export default Search;
+
+
+// <label htmlFor="website-admin"
+//        className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Username</label>
+// <div className="flex">
+// <span
+//   className="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 rounded-l-md border border-r-0 border-gray-300 dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+// @
+// </span>
+//   <input type="text" id="website-admin"
+//          className="rounded-none rounded-r-lg bg-gray-50 border border-gray-300 text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5 "
+//          placeholder="Bonnie Green">
+// </div>
