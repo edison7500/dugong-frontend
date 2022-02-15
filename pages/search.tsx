@@ -22,7 +22,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     data = await res.json()
 
     pageCount = Math.ceil(data.count / 30)
-    if (data.count % 30 > 0 && data.count > 1) {
+    if (data.count % 30 > 0 && pageCount > 1) {
       pageCount += 1
     }
 
@@ -53,8 +53,10 @@ const Search: NextPage = (data: InferGetServerSidePropsType<typeof getServerSide
   const q = data.q
   const pageCount = data.pageCount
 
+  console.log(pageCount)
+
   return (
-    <Layout>
+    <Layout title={q}>
       <div className="container flex justify-center mx-auto">
         <div className="w-full lg:w-8/12">
 
