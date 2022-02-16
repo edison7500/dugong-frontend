@@ -1,16 +1,13 @@
-import {GetServerSideProps, InferGetServerSidePropsType} from "next";
-import {apiBaseUrl} from "../../lib/constants";
-import Layout from "../../components/layout/layout";
-import {IPost} from "../../components/interface";
-import Post from "../../components/post";
-import Aside from "../../components/layout/aside";
-import {queryParams} from "../../lib/utils";
-import Pagination from "../../components/_pagination";
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
+import { apiBaseUrl } from '../../lib/constants'
+import Layout from '../../components/layout/layout'
+import { IPost } from '../../components/interface'
+import Post from '../../components/post'
+import Aside from '../../components/layout/aside'
+import { queryParams } from '../../lib/utils'
+import Pagination from '../../components/_pagination'
 
-
-export const getServerSideProps: GetServerSideProps = async (
-  context
-) => {
+export const getServerSideProps: GetServerSideProps = async context => {
   let data = null
   const page = context.query.page || 1
   const params = {
@@ -27,13 +24,14 @@ export const getServerSideProps: GetServerSideProps = async (
 
   return {
     props: {
-      data
-    }
+      data,
+    },
   }
 }
 
-
-const Tag = ({data}: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element => {
+const Tag = ({
+  data,
+}: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element => {
   const results = data.results
   let pageCount = Math.ceil(data.count / 30)
   if (data.count % 30 > 0 && pageCount > 1) {
@@ -43,21 +41,18 @@ const Tag = ({data}: InferGetServerSidePropsType<typeof getServerSideProps>): JS
     <Layout>
       <div className="container flex justify-between mx-auto">
         <div className="w-full lg:w-8/12">
-
           {results.map((post: IPost) => (
             <div className="mt-6" key={post.slug}>
-              <Post {...post}/>
+              <Post {...post} />
             </div>
           ))}
 
-          {pageCount > 1 ? <Pagination pageCount={pageCount}/> : ""}
-
+          {pageCount > 1 ? <Pagination pageCount={pageCount} /> : ''}
         </div>
-        <Aside/>
+        <Aside />
       </div>
     </Layout>
   )
 }
 
-
-export default Tag;
+export default Tag
