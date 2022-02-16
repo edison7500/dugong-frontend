@@ -43,6 +43,7 @@ const Index = ({
   const digest = `${tutorial.content.slice(0, 100)}...`
   const created_at = moment.unix(tutorial.created_at_ts)
 
+  // @ts-ignore
   return (
     <Layout title={tutorial.title} description={digest}>
       <div className="container flex justify-center mx-auto">
@@ -70,8 +71,8 @@ const Index = ({
           <Link href={data.origin_link}>
             <a
               target="_blank"
-              className="text-gray-400 hover:underline"
-              ref="nofollow">
+              rel="noreferrer"
+              className="text-gray-400 hover:underline">
               <FontAwesomeIcon icon={faExternalLinkAlt} />
               <span className="ml-2">{data.origin_link}</span>
             </a>
