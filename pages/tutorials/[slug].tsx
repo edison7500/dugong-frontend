@@ -61,20 +61,17 @@ const Index = ({
 
           <ReactMarkdown
             className="prose prose-neutral font-light max-w-none"
-            remarkPlugins={[gfm]}
-          >
+            remarkPlugins={[gfm]}>
             {data.content}
           </ReactMarkdown>
 
           <hr className="mt-4 mb-10 text-slate-400" />
 
           <Link href={data.origin_link}>
-            {/* eslint-disable-next-line react/no-string-refs */}
             <a
               target="_blank"
               className="text-gray-400 hover:underline"
-              ref="nofollow"
-            >
+              ref="nofollow">
               <FontAwesomeIcon icon={faExternalLinkAlt} />
               <span className="ml-2">{data.origin_link}</span>
             </a>
