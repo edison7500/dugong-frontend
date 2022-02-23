@@ -1,15 +1,14 @@
-import {ReactNode} from "react";
-
+import { ReactNode } from 'react'
 
 export interface MetaProps {
-  title?: string,
-  description?: string,
-  canonical?: string,
-  keyword?: string,
+  title?: string
+  description?: string
+  canonical?: string
+  keyword?: string
 }
 
 export interface Props extends MetaProps {
-  children: ReactNode,
+  children: ReactNode
   // title?: string
   // description?: string
 }
@@ -21,21 +20,21 @@ export interface ITag {
 }
 
 export interface IPost {
-  slug: string,
-  title: string,
-  digest: string,
-  content: string,
+  slug: string
+  title: string
+  digest: string
+  content: string
   created_at_ts: number
   tags?: ITag[]
 }
 
 export interface Tutorial {
-  slug: string,
-  cover_url: string,
-  title: string,
-  content: string,
-  created_at_ts: number,
-  published_at: string,
+  slug: string
+  cover_url: string
+  title: string
+  content: string
+  created_at_ts: number
+  published_at: string
   tags?: ITag[]
-  origin_link?: string,
+  origin_link?: string
 }

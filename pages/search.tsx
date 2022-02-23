@@ -64,8 +64,7 @@ const Search: NextPage = (
           <form
             className="max-w-2xl mx-auto mb-10"
             action={'/search/'}
-            method={`GET`}
-          >
+            method={`GET`}>
             <div className="flex">
               <span className="inline-flex items-center px-3 bg-white rounded-l-md text-gray-400">
                 <FontAwesomeIcon icon={faSearch} />

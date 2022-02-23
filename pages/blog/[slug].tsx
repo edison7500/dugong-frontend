@@ -49,8 +49,7 @@ const Index = ({
     <Layout
       title={`${_data.title} | Python 观察员`}
       description={digest}
-      canonical={`https://jiaxin.im/blog/${_data.slug}`}
-    >
+      canonical={`https://jiaxin.im/blog/${_data.slug}`}>
       <div className="container flex justify-center mx-auto">
         <div className="bg-white shrink w-8/12 p-8 rounded-lg shadow-md">
           <h1 className="mb-8 text-4xl font-bold text-center">{_data.title}</h1>
@@ -81,8 +80,7 @@ const Index = ({
 
           <ReactMarkdown
             className="prose prose-neutral font-light max-w-none"
-            remarkPlugins={[gfm]}
-          >
+            remarkPlugins={[gfm]}>
             {_data.content}
           </ReactMarkdown>
         </div>
