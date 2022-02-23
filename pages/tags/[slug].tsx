@@ -1,7 +1,7 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { apiBaseUrl } from '../../lib/constants'
 import Layout from '../../components/layout/layout'
-import { IPost } from '../../components/interface'
+import { IPost } from '../../interface'
 import Post from '../../components/post'
 import Aside from '../../components/layout/aside'
 import { queryParams } from '../../lib/utils'

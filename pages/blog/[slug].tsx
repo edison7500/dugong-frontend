@@ -1,14 +1,13 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import moment from 'moment'
 import ReactMarkdown from 'react-markdown'
-// import {BreadcrumbJsonLd} from 'next-seo';
 import Layout from '../../components/layout/layout'
 import { apiBaseUrl } from '../../lib/constants'
 import gfm from 'remark-gfm'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-regular-svg-icons'
 import { faTags } from '@fortawesome/free-solid-svg-icons'
-import { ITag } from '../../components/interface'
+import { ITag } from '../../interface'
 import Tag from '../../components/_tag'
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {

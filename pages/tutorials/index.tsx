@@ -1,7 +1,7 @@
 import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next'
 import Layout from '../../components/layout/layout'
 import { apiBaseUrl } from '../../lib/constants'
-import { Tutorial } from '../../components/interface'
+import { Tutorial } from '../../interface'
 import TutorialCell from '../../components/_tutorial'
 import Pagination from '../../components/_pagination'
 import { queryParams } from '../../lib/utils'
