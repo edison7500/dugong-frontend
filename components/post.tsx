@@ -1,4 +1,4 @@
-import { IPost, ITag } from './interface'
+import { IPost, ITag } from '../interface'
 import moment from 'moment'
 import Link from 'next/link'
 import Tag from './_tag'

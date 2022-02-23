@@ -1,4 +1,4 @@
-import { Tutorial } from './interface'
+import { Tutorial } from '../interface'
 import Image from 'next/image'
 import Link from 'next/link'
 

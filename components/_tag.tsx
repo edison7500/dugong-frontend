@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ITag } from './interface'
+import { ITag } from '../interface'
 
 const Tag = (tag: ITag): JSX.Element => {
   return (
