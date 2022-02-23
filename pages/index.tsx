@@ -5,7 +5,7 @@ import type {
 } from 'next'
 // import ReactPaginate from 'react-paginate';
 import Layout from '../components/layout/layout'
-import { IPost } from '../components/interface'
+import { IPost } from '../interface'
 import { apiBaseUrl } from '../lib/constants'
 import Aside from '../components/layout/aside'
 import Post from '../components/post'
