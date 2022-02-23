@@ -1,6 +1,5 @@
 import Link from 'next/link'
 
-
 const Index = () => {
   return (
     <>
@@ -22,4 +21,4 @@ const Index = () => {
   )
 }
 
-export default Index;
+export default Index

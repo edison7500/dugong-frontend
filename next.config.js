@@ -19,14 +19,13 @@ const securityHeaders = [
   },
   {
     key: 'Permissions-Policy',
-    value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()'
+    value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
   },
   {
     key: 'X-Content-Type-Options',
     value: 'nosniff',
   },
 ]
-
 
 module.exports = {
   trailingSlash: true,
@@ -42,7 +41,7 @@ module.exports = {
     ]
   },
   images: {
-    domains: ['img.jiaxin.im', "static.jiaxin.im"]
+    domains: ['img.jiaxin.im', 'static.jiaxin.im'],
   },
   reactStrictMode: true,
 }

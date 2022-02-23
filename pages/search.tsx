@@ -2,7 +2,7 @@ import Layout from '../components/layout/layout'
 import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next'
 import { apiBaseUrl } from '../lib/constants'
 import { queryParams } from '../lib/utils'
-import { IPost } from '../components/interface'
+import { IPost } from '../interface'
 import Post from '../components/post'
 import Pagination from '../components/_pagination'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -64,8 +64,7 @@ const Search: NextPage = (
           <form
             className="max-w-2xl mx-auto mb-10"
             action={'/search/'}
-            method={`GET`}
-          >
+            method={`GET`}>
             <div className="flex">
               <span className="inline-flex items-center px-3 bg-white rounded-l-md text-gray-400">
                 <FontAwesomeIcon icon={faSearch} />

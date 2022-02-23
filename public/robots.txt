@@ -3,7 +3,7 @@ Disallow: /admin/
 Disallow: /api/
 
 # Host
-Host: https://jiaxin.imm
+Host: https://www.jiaxin.im
 
 # Sitemap
-Sitemap: https://jiaxin.im/sitemap.xml
+Sitemap: https://www.jiaxin.im/sitemap.xml

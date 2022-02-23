@@ -1,20 +1,21 @@
-import {Tutorial} from "./interface";
-import Image from 'next/image';
-import Link from "next/link";
+import { Tutorial } from '../interface'
+import Image from 'next/image'
+import Link from 'next/link'
 
 const Tutorial = (tutorial: Tutorial): JSX.Element => {
-  const _cover_url = tutorial.cover_url ? tutorial.cover_url : ""
+  const _cover_url = tutorial.cover_url ? tutorial.cover_url : ''
   return (
     <>
       <div className="h-full border-1 shadow-md rounded-lg overflow-hidden">
         {/*<img className="lg:h-48 md:h-36 w-full object-cover object-center" src={tutorial.cover_url}/>*/}
-        <Image className="lg:h-48 md:h-36 w-full object-cover object-center"
-               alt={tutorial.title}
-               src={_cover_url}
-               width={"480"}
-               height={"240"}
-               layout="responsive"
-               priority
+        <Image
+          className="lg:h-48 md:h-36 w-full object-cover object-center"
+          alt={tutorial.title}
+          src={_cover_url}
+          width={'480'}
+          height={'240'}
+          layout="responsive"
+          priority
         />
         <div className="p-6">
           <Link href={`/tutorials/${tutorial.slug}`}>
@@ -30,4 +31,4 @@ const Tutorial = (tutorial: Tutorial): JSX.Element => {
   )
 }
 
-export default Tutorial;
+export default Tutorial

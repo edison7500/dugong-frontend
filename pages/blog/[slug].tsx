@@ -1,14 +1,13 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import moment from 'moment'
 import ReactMarkdown from 'react-markdown'
-// import {BreadcrumbJsonLd} from 'next-seo';
 import Layout from '../../components/layout/layout'
 import { apiBaseUrl } from '../../lib/constants'
 import gfm from 'remark-gfm'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClock } from '@fortawesome/free-regular-svg-icons'
 import { faTags } from '@fortawesome/free-solid-svg-icons'
-import { ITag } from '../../components/interface'
+import { ITag } from '../../interface'
 import Tag from '../../components/_tag'
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
@@ -49,8 +48,7 @@ const Index = ({
     <Layout
       title={`${_data.title} | Python 观察员`}
       description={digest}
-      canonical={`https://jiaxin.im/blog/${_data.slug}`}
-    >
+      canonical={`https://jiaxin.im/blog/${_data.slug}`}>
       <div className="container flex justify-center mx-auto">
         <div className="bg-white shrink w-8/12 p-8 rounded-lg shadow-md">
           <h1 className="mb-8 text-4xl font-bold text-center">{_data.title}</h1>
@@ -81,8 +79,7 @@ const Index = ({
 
           <ReactMarkdown
             className="prose prose-neutral font-light max-w-none"
-            remarkPlugins={[gfm]}
-          >
+            remarkPlugins={[gfm]}>
             {_data.content}
           </ReactMarkdown>
         </div>
