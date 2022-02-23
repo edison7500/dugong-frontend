@@ -33,9 +33,9 @@ const Post = (post: IPost): JSX.Element => {
             ''
           )}
           {post.tags?.map((tag: ITag) => (
-            <>
+            <span key={tag.slug}>
               <Tag {...tag} />
-            </>
+            </span>
           ))}
         </p>
         <p className="text-sm text-gray-600">
