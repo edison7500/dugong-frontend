@@ -1,4 +1,4 @@
-import { Props } from '../interface'
+import { Props } from '../../interface'
 import Meta from '../_meta'
 import Header from './header'
 import Footer from './footer'
