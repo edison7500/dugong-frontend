@@ -32,9 +32,9 @@ export interface Tutorial {
   slug: string
   cover_url: string
   title: string
-  content: string
+  content?: string
   created_at_ts: number
-  published_at: string
+  published_at_ts: string
   tags?: ITag[]
   origin_link?: string
 }
