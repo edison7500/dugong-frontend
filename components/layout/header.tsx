@@ -10,6 +10,8 @@ const classNames = ({ classes }: { classes: any[] }) => {
   return classes.filter(Boolean).join(' ')
 }
 
+// export const SearchAutoComplete
+
 const Header = () => {
   const navigation = [
     { name: '教程', href: '/tutorials/', current: false },
@@ -74,7 +76,8 @@ const Header = () => {
                     <FontAwesomeIcon icon={faSearch} />
                   </div>
                   <input
-                    className="block p-2 pl-10 w-full rounded-md text-gray-800"
+                    id={'search-input'}
+                    className="block p-2 pl-10 w-full rounded-full text-gray-800"
                     name="q"
                     type="text"
                     placeholder="Search..."

@@ -53,7 +53,6 @@ const Search: NextPage = (
   data: InferGetServerSidePropsType<typeof getServerSideProps>,
 ) => {
   const results = data.results
-
   const [query, setQuery] = useState(data.q)
   const pageCount = data.pageCount
 
@@ -66,11 +65,11 @@ const Search: NextPage = (
             action={'/search/'}
             method={`GET`}>
             <div className="flex">
-              <span className="inline-flex items-center px-3 bg-white rounded-l-md text-gray-400">
+              <span className="inline-flex items-center px-3 bg-white rounded-l-full text-gray-400">
                 <FontAwesomeIcon icon={faSearch} />
               </span>
               <input
-                className="p-2 block text-md mx-auto w-full bg-white rounded-r-md focus:ring-0"
+                className="p-2 block text-md mx-auto w-full bg-white rounded-r-full focus:ring-0"
                 placeholder={'Search...'}
                 name="q"
                 value={query}
