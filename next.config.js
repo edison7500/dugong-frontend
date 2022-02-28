@@ -42,6 +42,7 @@ module.exports = {
   },
   images: {
     domains: ['img.jiaxin.im', 'static.jiaxin.im'],
+    minimumCacheTTL: 86400,
   },
   reactStrictMode: true,
 }
