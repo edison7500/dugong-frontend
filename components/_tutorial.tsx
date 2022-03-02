@@ -18,7 +18,7 @@ const Tutorial = (tutorial: Tutorial): JSX.Element => {
           height={'240'}
           layout="responsive"
           placeholder="blur"
-          blurDataURL={rgbDataURL({ r: 2, g: 129, b: 210 })}
+          blurDataURL={rgbDataURL({ r: 248, g: 248, b: 248 })}
           priority
         />
         <div className="p-6">
