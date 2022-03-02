@@ -3,8 +3,6 @@ import { apiBaseUrl } from '../lib/constants'
 import { GetServerSideProps } from 'next'
 import moment from 'moment'
 
-const EXTERNAL_DATA_URL = 'https://www.jiaxin.im/blog'
-
 const generateSiteMap = (posts: any) => {
   return `<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"  xmlns:xhtml="https://www.w3.org/1999/xhtml">
@@ -18,7 +16,7 @@ const generateSiteMap = (posts: any) => {
         .map((post: IPost) => {
           return `
             <url>
-                <loc>${EXTERNAL_DATA_URL}/${post.slug}</loc>
+                <loc>https://www.jiaxin.im/blog/${post.slug}</loc>
                 <lastmod>${moment.unix(post.created_at_ts).format()}</lastmod>
                 <priority>1.0</priority>
                 <changefreq>monthly</changefreq>
