@@ -25,7 +25,7 @@ export interface IPost {
   digest?: string
   content?: string
   created_at_ts: number
-  updated_at_ts?: number
+  updated_at_ts: number
   tags?: ITag[]
 }
 
