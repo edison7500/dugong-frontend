@@ -17,7 +17,7 @@ const generateSiteMap = (posts: any) => {
           return `
             <url>
                 <loc>https://www.jiaxin.im/blog/${post.slug}</loc>
-                <lastmod>${moment.unix(post.created_at_ts).format()}</lastmod>
+                <lastmod>${moment.unix(post.updated_at_ts).format()}</lastmod>
                 <priority>1.0</priority>
                 <changefreq>monthly</changefreq>
             </url>`
