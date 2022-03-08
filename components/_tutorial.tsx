@@ -9,7 +9,6 @@ const Tutorial = (tutorial: Tutorial): JSX.Element => {
   return (
     <>
       <div className="h-full border-1 shadow-md rounded-lg overflow-hidden">
-        {/*<img className="lg:h-48 md:h-36 w-full object-cover object-center" src={tutorial.cover_url}/>*/}
         <Image
           className="lg:h-48 md:h-36 w-full object-cover object-center"
           alt={tutorial.title}
@@ -18,7 +17,7 @@ const Tutorial = (tutorial: Tutorial): JSX.Element => {
           height={'240'}
           layout="responsive"
           placeholder="blur"
-          blurDataURL={rgbDataURL({ r: 2, g: 129, b: 210 })}
+          blurDataURL={rgbDataURL({ r: 248, g: 248, b: 248 })}
           priority
         />
         <div className="p-6">

@@ -15,6 +15,7 @@ const classNames = ({ classes }: { classes: any[] }) => {
 const Header = () => {
   const navigation = [
     { name: '教程', href: '/tutorials/', current: false },
+    { name: 'ChainList', href: 'https://chainlist.jiaxin.im', current: false },
     // {name: '博客', href: '#', current: false},
   ]
 
