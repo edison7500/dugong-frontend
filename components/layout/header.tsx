@@ -14,8 +14,13 @@ const classNames = ({ classes }: { classes: any[] }) => {
 
 const Header = () => {
   const navigation = [
-    { name: '教程', href: '/tutorials/', current: false },
-    { name: 'ChainList', href: 'https://chainlist.jiaxin.im', current: false },
+    { name: '教程', href: '/tutorials/', current: false, blank: false },
+    {
+      name: 'ChainList',
+      href: 'https://chainlist.jiaxin.im',
+      current: false,
+      blank: true,
+    },
     // {name: '博客', href: '#', current: false},
   ]
 
@@ -60,7 +65,8 @@ const Header = () => {
                               'px-3 py-2 rounded-md text-base font-light',
                             ],
                           })}
-                          aria-current={item.current ? 'page' : undefined}>
+                          aria-current={item.current ? 'page' : undefined}
+                          target={item.blank ? '_blank' : '_self'}>
                           {item.name}
                         </a>
                       </Link>
