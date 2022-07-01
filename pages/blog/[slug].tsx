@@ -12,10 +12,10 @@ import Tag from '../../components/_tag'
 
 export const getServerSideProps: GetServerSideProps = async context => {
   let data = null
-  const slug = context.query.slug
+  // const slug = context.query.slug
+  const url = `${apiBaseUrl}/api/posts/${context.query.slug}/`
 
   try {
-    const url = `${apiBaseUrl}/api/posts/${slug}/`
     const [response] = await Promise.all([fetch(url)])
     if (response.status === 404) {
       return {
