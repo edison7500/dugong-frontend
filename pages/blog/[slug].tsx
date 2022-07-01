@@ -10,13 +10,20 @@ import { faTags } from '@fortawesome/free-solid-svg-icons'
 import { ITag } from '../../interface'
 import Tag from '../../components/_tag'
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+export const getServerSideProps: GetServerSideProps = async context => {
   let data = null
+  const slug = context.query.slug
+
+  // console.log(context.res)
+  context.res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=59',
+  )
 
   try {
-    const url = `${apiBaseUrl}/api/posts/${query.slug}/`
-    const [res] = await Promise.all([fetch(url)])
-    if (res.status === 404) {
+    const url = `${apiBaseUrl}/api/posts/${slug}/`
+    const [response] = await Promise.all([fetch(url)])
+    if (response.status === 404) {
       return {
         redirect: {
           destination: '404',
@@ -24,7 +31,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
         },
       }
     }
-    ;[data] = await Promise.all([res.json()])
+    ;[data] = await Promise.all([response.json()])
   } catch (err: any) {
     throw new Error(err)
   }
