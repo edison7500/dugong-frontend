@@ -1,5 +1,6 @@
 module.exports = {
   content: [
+    'node_modules/preline/dist/*.js',
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
   ],
@@ -9,7 +10,12 @@ module.exports = {
       center: true,
       // padding: '2rem',
     },
+    color: {
+      transparent: 'transparent',
+      black: '#000',
+      white: '#fff',
+    },
     extend: {},
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [require('@tailwindcss/typography'), require('preline/plugin')],
 }

@@ -9,7 +9,7 @@ const Index = ({ children, title, description }: Props): JSX.Element => {
     <>
       <Meta title={_title} description={description} />
       <Header />
-      <div className="px-6 py-8 bg-gray-100">{children}</div>
+      <div className="px-6 py-8 bg-gray-100 dark:bg-black">{children}</div>
       <Footer />
     </>
   )
