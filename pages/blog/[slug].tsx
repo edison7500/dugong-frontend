@@ -14,12 +14,6 @@ export const getServerSideProps: GetServerSideProps = async context => {
   let data = null
   const slug = context.query.slug
 
-  // console.log(context.res)
-  context.res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=10, stale-while-revalidate=59',
-  )
-
   try {
     const url = `${apiBaseUrl}/api/posts/${slug}/`
     const [response] = await Promise.all([fetch(url)])
