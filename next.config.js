@@ -30,7 +30,7 @@ const securityHeaders = [
 module.exports = {
   trailingSlash: true,
   poweredByHeader: false,
-  compress: false,
+  compress: true,
   async headers() {
     return [
       {
