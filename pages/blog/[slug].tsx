@@ -1,14 +1,15 @@
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
-import moment from 'moment'
-import ReactMarkdown from 'react-markdown'
-import Layout from '../../components/layout/layout'
-import { apiBaseUrl } from '../../lib/constants'
-import gfm from 'remark-gfm'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock } from '@fortawesome/free-regular-svg-icons'
-import { faTags } from '@fortawesome/free-solid-svg-icons'
-import { ITag } from '../../interface'
-import Tag from '../../components/_tag'
+import { GetServerSideProps, InferGetServerSidePropsType } from "next"
+import Link from "next/link"
+import moment from "moment"
+import ReactMarkdown from "react-markdown"
+import Layout from "../../components/layout/layout"
+import { apiBaseUrl } from "../../lib/constants"
+import gfm from "remark-gfm"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faClock } from "@fortawesome/free-regular-svg-icons"
+import { faTags, faHome, faFileText } from "@fortawesome/free-solid-svg-icons"
+import { ITag } from "../../interface"
+import Tag from "../../components/_tag"
 
 export const getServerSideProps: GetServerSideProps = async context => {
   let data = null
@@ -20,7 +21,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
     if (response.status === 404) {
       return {
         redirect: {
-          destination: '404',
+          destination: "404",
           permanent: false,
         },
       }
@@ -51,38 +52,59 @@ const Index = ({
       description={digest}
       canonical={`https://jiaxin.im/blog/${_data.slug}`}>
       <div className="container flex justify-center mx-auto">
-        <div className="bg-white shrink w-8/12 p-8 rounded-lg shadow-md">
-          <h1 className="mb-8 text-4xl font-bold text-center">{_data.title}</h1>
-
-          <div className="pt-4 flex justify-between">
-            <p className="text-sm text-gray-600">
-              {tagNumber > 0 ? (
-                <FontAwesomeIcon icon={faTags} className="mr-2" />
-              ) : (
-                ''
-              )}
-              {_data.tags?.map((tag: ITag) => (
-                <>
-                  <Tag {...tag} />
-                </>
-              ))}
-            </p>
-
-            <div className="text-sm text-slate-400">
-              <FontAwesomeIcon icon={faClock} />
-              <span className="ml-1 font-light">
-                {created_at.format('yyyy-MM-DD')}
-              </span>
-            </div>
+        <div className="bg-white shrink w-8/12">
+          <div className="text-sm breadcrumbs">
+            <ul>
+              <li>
+                <Link href={"/"}>
+                  <a title="Python 观察员">
+                    <FontAwesomeIcon icon={faHome} className="mr-2" />
+                    Home
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <FontAwesomeIcon icon={faFileText} className="mr-2" />
+                {_data.title}
+              </li>
+            </ul>
           </div>
 
-          <hr className="my-4 text-slate-400" />
+          <div className="mt-4 p-16 rounded-lg shadow-md border-slate-800">
+            <h1 className="mb-8 text-4xl font-bold text-center">
+              {_data.title}
+            </h1>
 
-          <ReactMarkdown
-            className="prose prose-neutral font-light max-w-none"
-            remarkPlugins={[gfm]}>
-            {_data.content}
-          </ReactMarkdown>
+            <div className="pt-4 flex justify-between">
+              <div className="text-sm text-gray-600">
+                {tagNumber > 0 ? (
+                  <FontAwesomeIcon icon={faTags} className="mr-2" />
+                ) : (
+                  ""
+                )}
+                {_data.tags?.map((tag: ITag) => (
+                  <>
+                    <Tag {...tag} />
+                  </>
+                ))}
+              </div>
+
+              <div className="text-sm text-slate-400">
+                <FontAwesomeIcon icon={faClock} />
+                <span className="ml-1 font-light">
+                  {created_at.format("yyyy-MM-DD")}
+                </span>
+              </div>
+            </div>
+
+            <div className="divider"></div>
+
+            <ReactMarkdown
+              className="prose prose-neutral font-light max-w-none"
+              remarkPlugins={[gfm]}>
+              {_data.content}
+            </ReactMarkdown>
+          </div>
         </div>
       </div>
     </Layout>

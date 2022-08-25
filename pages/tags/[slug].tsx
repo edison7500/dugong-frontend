@@ -1,11 +1,11 @@
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
-import { apiBaseUrl } from '../../lib/constants'
-import Layout from '../../components/layout/layout'
-import { IPost } from '../../interface'
-import Post from '../../components/post'
-import Aside from '../../components/layout/aside'
-import { queryParams } from '../../lib/utils'
-import Pagination from '../../components/_pagination'
+import { GetServerSideProps, InferGetServerSidePropsType } from "next"
+import { apiBaseUrl } from "../../lib/constants"
+import Layout from "../../components/layout/layout"
+import { IPost } from "../../interface"
+import Post from "../../components/post"
+import Aside from "../../components/layout/aside"
+import { queryParams } from "../../lib/utils"
+import Pagination from "../../components/_pagination"
 
 export const getServerSideProps: GetServerSideProps = async context => {
   let data = null
@@ -47,7 +47,7 @@ const Tag = ({
             </div>
           ))}
 
-          {pageCount > 1 ? <Pagination pageCount={pageCount} /> : ''}
+          {pageCount > 1 ? <Pagination pageCount={pageCount} /> : ""}
         </div>
         <Aside />
       </div>

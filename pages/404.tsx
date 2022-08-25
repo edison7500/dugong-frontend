@@ -1,8 +1,8 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
-import Link from 'next/link'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faAngleLeft } from "@fortawesome/free-solid-svg-icons"
+import Link from "next/link"
 
-import Layout from '../components/layout/layout'
+import Layout from "../components/layout/layout"
 
 const Index = () => {
   return (

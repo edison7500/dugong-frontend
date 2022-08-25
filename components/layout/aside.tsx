@@ -1,4 +1,4 @@
-import Github from '../_github'
+import Github from "../_github"
 
 const Aside = () => {
   return (

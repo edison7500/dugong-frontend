@@ -1,21 +1,33 @@
 module.exports = {
   content: [
-    'node_modules/preline/dist/*.js',
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
+    "node_modules/preline/dist/*.js",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class',
+  darkMode: "class",
   theme: {
     container: {
       center: true,
       // padding: '2rem',
     },
-    color: {
-      transparent: 'transparent',
-      black: '#000',
-      white: '#fff',
-    },
+    // color: {
+    //   transparent: "transparent",
+    //   black: "#000",
+    //   white: "#fff",
+    // },
     extend: {},
   },
-  plugins: [require('@tailwindcss/typography'), require('preline/plugin')],
+  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+
+  // daisyUI config (optional)
+  daisyui: {
+    styled: true,
+    themes: ["light"],
+    base: true,
+    utils: true,
+    logs: true,
+    rtl: false,
+    prefix: "",
+    darkTheme: "dark",
+  },
 }

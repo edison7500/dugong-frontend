@@ -1,7 +1,7 @@
-import { IPost } from '../interface'
-import { apiBaseUrl } from '../lib/constants'
-import { GetServerSideProps } from 'next'
-import moment from 'moment'
+import { IPost } from "../interface"
+import { apiBaseUrl } from "../lib/constants"
+import { GetServerSideProps } from "next"
+import moment from "moment"
 
 const generateSiteMap = (posts: any) => {
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -22,7 +22,7 @@ const generateSiteMap = (posts: any) => {
                 <changefreq>monthly</changefreq>
             </url>`
         })
-        .join('')}
+        .join("")}
     </urlset>
   `
 }
@@ -36,7 +36,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   // We generate the XML sitemap with the posts data
   const sitemap = generateSiteMap(posts.results)
 
-  res.setHeader('Content-Type', 'text/xml')
+  res.setHeader("Content-Type", "text/xml")
   // we send the XML to the browser
   res.write(sitemap)
   res.end()

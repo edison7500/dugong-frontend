@@ -1,10 +1,10 @@
-import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next'
-import Layout from '../../components/layout/layout'
-import { apiBaseUrl } from '../../lib/constants'
-import { Tutorial } from '../../interface'
-import TutorialCell from '../../components/_tutorial'
-import Pagination from '../../components/_pagination'
-import { queryParams } from '../../lib/utils'
+import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next"
+import Layout from "../../components/layout/layout"
+import { apiBaseUrl } from "../../lib/constants"
+import { Tutorial } from "../../interface"
+import TutorialCell from "../../components/_tutorial"
+import Pagination from "../../components/_pagination"
+import { queryParams } from "../../lib/utils"
 
 export const getServerSideProps: GetServerSideProps = async context => {
   let data = null
@@ -21,7 +21,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
     if (res.status === 404) {
       return {
         redirect: {
-          destination: '/404',
+          destination: "/404",
           permanent: false,
         },
       }

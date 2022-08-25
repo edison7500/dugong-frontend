@@ -1,13 +1,13 @@
-import Layout from '../components/layout/layout'
-import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next'
-import { apiBaseUrl } from '../lib/constants'
-import { queryParams } from '../lib/utils'
-import { IPost } from '../interface'
-import Post from '../components/post'
-import Pagination from '../components/_pagination'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
-import { useState } from 'react'
+import Layout from "../components/layout/layout"
+import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next"
+import { apiBaseUrl } from "../lib/constants"
+import { queryParams } from "../lib/utils"
+import { IPost } from "../interface"
+import Post from "../components/post"
+import Pagination from "../components/_pagination"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faSearch } from "@fortawesome/free-solid-svg-icons"
+import { useState } from "react"
 
 export const getServerSideProps: GetServerSideProps = async context => {
   let data = null
@@ -31,7 +31,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
     if (res.status === 404) {
       return {
         redirect: {
-          destination: '404',
+          destination: "404",
           permanent: false,
         },
       }
@@ -62,7 +62,7 @@ const Search: NextPage = (
         <div className="w-full lg:w-8/12">
           <form
             className="max-w-2xl mx-auto mb-10"
-            action={'/search/'}
+            action={"/search/"}
             method={`GET`}>
             <div className="flex">
               <span className="inline-flex items-center px-3 bg-white rounded-l-full text-gray-400">
@@ -70,7 +70,7 @@ const Search: NextPage = (
               </span>
               <input
                 className="p-2 block text-md mx-auto w-full bg-white rounded-r-full focus:ring-0"
-                placeholder={'Search...'}
+                placeholder={"Search..."}
                 name="q"
                 value={query}
                 onInput={e => {
@@ -87,7 +87,7 @@ const Search: NextPage = (
             </div>
           ))}
 
-          {pageCount > 1 ? <Pagination pageCount={pageCount} /> : ''}
+          {pageCount > 1 ? <Pagination pageCount={pageCount} /> : ""}
         </div>
       </div>
     </Layout>

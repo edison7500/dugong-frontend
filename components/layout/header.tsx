@@ -1,23 +1,23 @@
-import Link from 'next/link'
-import { Disclosure } from '@headlessui/react'
-import { MenuIcon, XIcon } from '@heroicons/react/outline'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPython } from '@fortawesome/free-brands-svg-icons'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import Link from "next/link"
+import { Disclosure } from "@headlessui/react"
+import { MenuIcon, XIcon } from "@heroicons/react/outline"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faPython } from "@fortawesome/free-brands-svg-icons"
+import { faSearch } from "@fortawesome/free-solid-svg-icons"
 // import {faInfo} from "@fortawesome/free-solid-svg-icons";
 
 const classNames = ({ classes }: { classes: any[] }) => {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ")
 }
 
 // export const SearchAutoComplete
 
 const Header = () => {
   const navigation = [
-    { name: '教程', href: '/tutorials/', current: false, blank: false },
+    { name: "教程", href: "/tutorials/", current: false, blank: false },
     {
-      name: 'ChainList',
-      href: 'https://chainlist.jiaxin.im',
+      name: "ChainList",
+      href: "https://chainlist.jiaxin.im",
       current: false,
       blank: true,
     },
@@ -25,7 +25,7 @@ const Header = () => {
   ]
 
   return (
-    <Disclosure as="nav" className="sticky top-0 z-30 bg-neutral-800">
+    <Disclosure as="nav" className="sticky top-0 z-50 bg-black">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -60,13 +60,13 @@ const Header = () => {
                           className={classNames({
                             classes: [
                               item.current
-                                ? 'bg-neutral-900 text-white'
-                                : 'bg-neutral-800 text-white hover:bg-neutral-700 hover:text-white',
-                              'px-3 py-2 rounded-md text-base font-light',
+                                ? "bg-neutral-900 text-white"
+                                : "bg-neutral-800 text-white hover:bg-neutral-700 hover:text-white",
+                              "px-3 py-2 rounded-md text-base font-light",
                             ],
                           })}
-                          aria-current={item.current ? 'page' : undefined}
-                          target={item.blank ? '_blank' : '_self'}>
+                          aria-current={item.current ? "page" : undefined}
+                          target={item.blank ? "_blank" : "_self"}>
                           {item.name}
                         </a>
                       </Link>
@@ -77,13 +77,13 @@ const Header = () => {
 
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <form
-                  action={'/search/'}
+                  action={"/search/"}
                   className="hidden relative mr-3 md:mr-0 md:block text-gray-400">
                   <div className="flex absolute inset-y-0 left-0 items-center pl-3">
                     <FontAwesomeIcon icon={faSearch} />
                   </div>
                   <input
-                    id={'search-input'}
+                    id={"search-input"}
                     className="block p-2 pl-10 w-full rounded-full text-gray-800"
                     name="q"
                     type="text"
