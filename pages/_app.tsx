@@ -1,9 +1,9 @@
-import { config } from '@fortawesome/fontawesome-svg-core'
-import '../styles/globals.css'
-import '@fortawesome/fontawesome-svg-core/styles.css'
-import Script from 'next/script'
+import { config } from "@fortawesome/fontawesome-svg-core"
+import "../styles/globals.css"
+import "@fortawesome/fontawesome-svg-core/styles.css"
+import Script from "next/script"
 
-import type { AppProps } from 'next/app'
+import type { AppProps } from "next/app"
 
 config.autoAddCss = false
 

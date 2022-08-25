@@ -1,10 +1,10 @@
-import { Tutorial } from '../interface'
-import Image from 'next/image'
-import Link from 'next/link'
-import { rgbDataURL } from '../lib/utils'
+import { Tutorial } from "../interface"
+import Image from "next/image"
+import Link from "next/link"
+import { rgbDataURL } from "../lib/utils"
 
 const Tutorial = (tutorial: Tutorial): JSX.Element => {
-  const _cover_url = tutorial.cover_url ? tutorial.cover_url : ''
+  const _cover_url = tutorial.cover_url ? tutorial.cover_url : ""
 
   return (
     <>
@@ -13,8 +13,8 @@ const Tutorial = (tutorial: Tutorial): JSX.Element => {
           className="lg:h-48 md:h-36 w-full object-cover object-center"
           alt={tutorial.title}
           src={_cover_url}
-          width={'480'}
-          height={'240'}
+          width={"480"}
+          height={"240"}
           layout="responsive"
           placeholder="blur"
           blurDataURL={rgbDataURL({ r: 248, g: 248, b: 248 })}

@@ -1,22 +1,18 @@
-import Link from 'next/link'
+import Link from "next/link"
 
 const Index = () => {
   return (
     <>
-      <footer className="relative pt-10 bg-gray-100">
-        <div className="container mx-auto px-6">
-          <div className="mt-4 flex flex-col items-center">
-            <div className="sm:w-2/3 text-center py-6">
-              <p className="text-sm text-gray-700 font mb-2">
-                <Link href="https://nextjs.org">
-                  <a target="_blank" className="pr-2 hover:underline">
-                    Power by Next.js.
-                  </a>
-                </Link>
-                <span>The source code is licensed GNU. Build nicely.</span>
-              </p>
-            </div>
-          </div>
+      <footer className="footer footer-center mt-20 p-4 bg-base-100 text-base-content">
+        <div className="sm:w-2/3 text-center py-6">
+          <p className="text-md font-semibold">
+            <Link href="https://nextjs.org">
+              <a target="_blank" className="btn btn-link">
+                Power by Next.js.
+              </a>
+            </Link>
+            <span>The source code is licensed GNU. Build nicely.</span>
+          </p>
         </div>
       </footer>
     </>

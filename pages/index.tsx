@@ -2,14 +2,14 @@ import type {
   GetServerSideProps,
   InferGetServerSidePropsType,
   NextPage,
-} from 'next'
+} from "next"
 // import ReactPaginate from 'react-paginate';
-import Layout from '../components/layout/layout'
-import { IPost } from '../interface'
-import { apiBaseUrl } from '../lib/constants'
-import Aside from '../components/layout/aside'
-import Post from '../components/post'
-import Pagination from '../components/_pagination'
+import Layout from "../components/layout/layout"
+import { IPost } from "../interface"
+import { apiBaseUrl } from "../lib/constants"
+import Aside from "../components/layout/aside"
+import Post from "../components/post"
+import Pagination from "../components/_pagination"
 
 export const getServerSideProps: GetServerSideProps = async context => {
   let data = null
@@ -20,7 +20,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
     if (res.status === 404) {
       return {
         redirect: {
-          destination: '404',
+          destination: "404",
           permanent: false,
         },
       }
@@ -50,7 +50,9 @@ const Home: NextPage = ({
       <div className="container flex justify-between mx-auto">
         <div className="w-full lg:w-8/12">
           {results.map((post: IPost) => (
-            <div className="mt-6" key={post.slug}>
+            <div
+              className="mt-6 card card-bordered card-normal shadow-md"
+              key={post.slug}>
               <Post {...post} />
             </div>
           ))}

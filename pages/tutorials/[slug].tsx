@@ -1,13 +1,13 @@
-import Layout from '../../components/layout/layout'
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
-import { apiBaseUrl } from '../../lib/constants'
-import ReactMarkdown from 'react-markdown'
-import gfm from 'remark-gfm'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faClock } from '@fortawesome/free-regular-svg-icons'
-import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons'
-import moment from 'moment'
-import Link from 'next/link'
+import Layout from "../../components/layout/layout"
+import { GetServerSideProps, InferGetServerSidePropsType } from "next"
+import { apiBaseUrl } from "../../lib/constants"
+import ReactMarkdown from "react-markdown"
+import gfm from "remark-gfm"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faClock } from "@fortawesome/free-regular-svg-icons"
+import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons"
+import moment from "moment"
+import Link from "next/link"
 
 export const getServerSideProps: GetServerSideProps = async context => {
   let data
@@ -19,7 +19,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
     if (res.status === 404) {
       return {
         redirect: {
-          destination: '404',
+          destination: "404",
           permanent: false,
         },
       }
@@ -55,7 +55,7 @@ const Index = ({
           <div className="py-4 text-sm text-slate-400">
             <FontAwesomeIcon icon={faClock} />
             <span className="ml-1 font-light">
-              {created_at.format('yyyy-MM-DD')}
+              {created_at.format("yyyy-MM-DD")}
             </span>
           </div>
           <hr className="my-4 text-slate-400" />

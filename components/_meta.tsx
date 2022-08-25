@@ -1,6 +1,6 @@
-import Head from 'next/head'
-import { MetaProps } from '../interface'
-import { NextSeo } from 'next-seo'
+import Head from "next/head"
+import { MetaProps } from "../interface"
+import { NextSeo } from "next-seo"
 
 const Meta = ({ title, description }: MetaProps): JSX.Element => {
   return (

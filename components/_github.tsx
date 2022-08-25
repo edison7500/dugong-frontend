@@ -1,13 +1,13 @@
-import Link from 'next/link'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import Link from "next/link"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faGithub } from "@fortawesome/free-brands-svg-icons"
 
 const Github = () => {
   const repos = [
-    'dugong',
-    'django-leancloud-sms',
-    'flask-oss',
-    'django-sendcloud',
+    "dugong",
+    "django-leancloud-sms",
+    "flask-oss",
+    "django-sendcloud",
   ]
 
   return (
