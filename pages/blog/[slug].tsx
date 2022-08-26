@@ -70,7 +70,10 @@ const Index = ({
             </ul>
           </div>
 
-          <div className="mt-4 p-16 rounded-lg shadow-md border-slate-800">
+          <div
+            className="mt-4 p-16 rounded-lg shadow-md border-slate-800"
+            itemScope={true}
+            itemType="https://schema.org/Blog">
             <h1 className="mb-8 text-4xl font-bold text-center">
               {_data.title}
             </h1>
