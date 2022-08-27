@@ -52,7 +52,7 @@ const Index = ({
       description={digest}
       canonical={`https://jiaxin.im/blog/${_data.slug}`}>
       <div className="container flex justify-center mx-auto">
-        <div className="bg-white shrink w-8/12">
+        <div className="bg-base-100 shrink w-8/12">
           <div className="text-sm breadcrumbs">
             <ul>
               <li>
@@ -71,7 +71,7 @@ const Index = ({
           </div>
 
           <div
-            className="mt-4 p-16 rounded-lg shadow-md border-slate-800"
+            className="mt-4 p-8 rounded-lg shadow-md border-slate-800"
             itemScope={true}
             itemType="https://schema.org/Blog">
             <h1 className="mb-8 text-4xl font-bold text-center">
