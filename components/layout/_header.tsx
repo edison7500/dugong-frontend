@@ -12,7 +12,7 @@ const classNames = ({ classes }: { classes: any[] }) => {
 
 // export const SearchAutoComplete
 
-const Header = () => {
+export const Header = () => {
   const navigation = [
     { name: "教程", href: "/tutorials/", current: false, blank: false },
     {
@@ -99,4 +99,4 @@ const Header = () => {
   )
 }
 
-export default Header
+// export  Header

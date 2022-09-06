@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-const Index = () => {
+export const Footer = () => {
   return (
     <>
       <footer className="footer footer-center mt-20 p-4 bg-base-100 text-base-content">
@@ -19,4 +19,4 @@ const Index = () => {
   )
 }
 
-export default Index
+// export default Index

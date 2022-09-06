@@ -1,9 +1,13 @@
 import { Props } from "../../interface"
 import Meta from "../_meta"
-import Header from "./header"
-import Footer from "./footer"
+import { Header } from "./_header"
+import { Footer } from "./_footer"
 
-const Index = ({ children, title, description }: Props): JSX.Element => {
+export const Layout = ({
+  children,
+  title,
+  description,
+}: Props): JSX.Element => {
   const _title = title ? title : "Python 观察员"
   return (
     <>
@@ -15,4 +19,4 @@ const Index = ({ children, title, description }: Props): JSX.Element => {
   )
 }
 
-export default Index
+// export default Layout

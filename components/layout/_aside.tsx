@@ -1,6 +1,6 @@
 import Github from "../_github"
 
-const Aside = () => {
+export const Asider = () => {
   return (
     <div className="hidden w-4/12 -mx-8 lg:block">
       <div className="px-4 mt-6">
@@ -9,5 +9,3 @@ const Aside = () => {
     </div>
   )
 }
-
-export default Aside

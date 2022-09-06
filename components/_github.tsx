@@ -1,3 +1,4 @@
+import { memo } from "react"
 import Link from "next/link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
@@ -44,4 +45,4 @@ const Github = () => {
   )
 }
 
-export default Github
+export default memo(Github)

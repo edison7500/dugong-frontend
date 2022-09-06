@@ -1,13 +1,14 @@
+import { Suspense, lazy } from "react"
 import type {
   GetServerSideProps,
   InferGetServerSidePropsType,
   NextPage,
 } from "next"
 // import ReactPaginate from 'react-paginate';
-import Layout from "../components/layout/layout"
+import { Layout } from "../components/layout"
 import { IPost } from "../interface"
 import { apiBaseUrl } from "../lib/constants"
-import Aside from "../components/layout/aside"
+import { Asider } from "../components/layout"
 import Post from "../components/post"
 import Pagination from "../components/_pagination"
 
@@ -51,7 +52,7 @@ const Home: NextPage = ({
         <div className="w-full lg:w-8/12">
           {results.map((post: IPost) => (
             <div
-              className="mt-6 card card-bordered card-normal shadow-md"
+              className="mt-6 card card-bordered card-normal shadow-md rounded-md"
               key={post.slug}>
               <Post {...post} />
             </div>
@@ -59,7 +60,7 @@ const Home: NextPage = ({
           <Pagination pageCount={pageCount} />
         </div>
 
-        <Aside />
+        <Asider />
       </div>
     </Layout>
   )
