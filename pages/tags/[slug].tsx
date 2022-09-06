@@ -1,9 +1,8 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from "next"
 import { apiBaseUrl } from "../../lib/constants"
-import Layout from "../../components/layout/layout"
+import { Layout, Asider } from "../../components/layout"
 import { IPost } from "../../interface"
 import Post from "../../components/post"
-import Aside from "../../components/layout/aside"
 import { queryParams } from "../../lib/utils"
 import Pagination from "../../components/_pagination"
 
@@ -49,7 +48,7 @@ const Tag = ({
 
           {pageCount > 1 ? <Pagination pageCount={pageCount} /> : ""}
         </div>
-        <Aside />
+        <Asider />
       </div>
     </Layout>
   )

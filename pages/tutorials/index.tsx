@@ -1,5 +1,5 @@
 import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next"
-import Layout from "../../components/layout/layout"
+import { Layout } from "../../components/layout"
 import { apiBaseUrl } from "../../lib/constants"
 import { Tutorial } from "../../interface"
 import TutorialCell from "../../components/_tutorial"

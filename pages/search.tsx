@@ -1,4 +1,4 @@
-import Layout from "../components/layout/layout"
+import { Layout } from "../components/layout"
 import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from "next"
 import { apiBaseUrl } from "../lib/constants"
 import { queryParams } from "../lib/utils"
