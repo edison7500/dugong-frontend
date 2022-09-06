@@ -1,16 +1,18 @@
-import { Suspense, lazy } from "react"
 import type {
   GetServerSideProps,
   InferGetServerSidePropsType,
   NextPage,
 } from "next"
-// import ReactPaginate from 'react-paginate';
+import dynamic from "next/dynamic"
+import { apiBaseUrl } from "../lib/constants"
 import { Layout } from "../components/layout"
 import { IPost } from "../interface"
-import { apiBaseUrl } from "../lib/constants"
-import { Asider } from "../components/layout"
 import Post from "../components/post"
 import Pagination from "../components/_pagination"
+
+const Asider = dynamic(() => import("../components/layout/_aside"), {
+  suspense: true,
+})
 
 export const getServerSideProps: GetServerSideProps = async context => {
   let data = null
