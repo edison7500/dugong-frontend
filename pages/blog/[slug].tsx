@@ -50,7 +50,7 @@ const Index = ({
     <Layout
       title={`${_data.title} | Python 观察员`}
       description={digest}
-      canonical={`https://jiaxin.im/blog/${_data.slug}`}>
+      canonical={`https://www.jiaxin.im/blog/${_data.slug}`}>
       <div className="container flex justify-center mx-auto">
         <div className="bg-base-100 shrink w-8/12">
           <div className="text-sm breadcrumbs">
@@ -70,11 +70,13 @@ const Index = ({
             </ul>
           </div>
 
-          <div
+          <article
             className="mt-4 p-8 rounded-lg shadow-md border-slate-800"
             itemScope={true}
-            itemType="https://schema.org/Blog">
-            <h1 className="mb-8 text-4xl font-bold text-center">
+            itemType="https://schema.org/Article">
+            <h1
+              className="mb-8 text-4xl font-bold text-center"
+              itemProp={"name"}>
               {_data.title}
             </h1>
 
@@ -107,7 +109,7 @@ const Index = ({
               remarkPlugins={[gfm]}>
               {_data.content}
             </ReactMarkdown>
-          </div>
+          </article>
         </div>
       </div>
     </Layout>
