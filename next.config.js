@@ -45,5 +45,4 @@ module.exports = {
     minimumCacheTTL: 86400,
   },
   reactStrictMode: true,
-  // concurrentFeatures: true,
 }
