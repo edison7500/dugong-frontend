@@ -22,8 +22,8 @@ export interface ITag {
 export interface IPost {
   slug: string
   title: string
-  digest?: string
-  content?: string
+  digest?: string | undefined
+  content?: string | undefined
   created_at_ts: number
   updated_at_ts: number
   tags?: ITag[]

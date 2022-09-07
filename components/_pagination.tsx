@@ -11,7 +11,7 @@ const Pagination = ({
   pageCount,
   marginPagesDisplayed,
   pageRangeDisplayed,
-}: Page) => {
+}: Page): JSX.Element => {
   const router = useRouter()
   const currPage = Number(router.query.page) || 1
 

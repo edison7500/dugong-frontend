@@ -4,26 +4,23 @@ import { MenuIcon, XIcon } from "@heroicons/react/outline"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPython } from "@fortawesome/free-brands-svg-icons"
 import { faSearch } from "@fortawesome/free-solid-svg-icons"
-// import {faInfo} from "@fortawesome/free-solid-svg-icons";
 
 const classNames = ({ classes }: { classes: any[] }) => {
   return classes.filter(Boolean).join(" ")
 }
 
-// export const SearchAutoComplete
+const navigation = [
+  { name: "教程", href: "/tutorials/", current: false, blank: false },
+  {
+    name: "ChainList",
+    href: "https://chainlist.jiaxin.im",
+    current: false,
+    blank: true,
+  },
+  // {name: '博客', href: '#', current: false},
+]
 
 export const Header = () => {
-  const navigation = [
-    { name: "教程", href: "/tutorials/", current: false, blank: false },
-    {
-      name: "ChainList",
-      href: "https://chainlist.jiaxin.im",
-      current: false,
-      blank: true,
-    },
-    // {name: '博客', href: '#', current: false},
-  ]
-
   return (
     <Disclosure as="nav" className="sticky top-0 z-50 bg-black">
       {({ open }) => (
@@ -99,4 +96,4 @@ export const Header = () => {
   )
 }
 
-// export  Header
+// export default Header

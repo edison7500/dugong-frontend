@@ -1,5 +1,12 @@
-import { GetServerSideProps, InferGetServerSidePropsType } from "next"
+import {
+  GetServerSideProps,
+  InferGetServerSidePropsType,
+  GetStaticPaths,
+  GetStaticProps,
+  InferGetStaticPropsType,
+} from "next"
 import Link from "next/link"
+import { useRouter } from "next/router"
 import moment from "moment"
 import ReactMarkdown from "react-markdown"
 import { Layout } from "../../components/layout"
@@ -8,43 +15,55 @@ import gfm from "remark-gfm"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faClock } from "@fortawesome/free-regular-svg-icons"
 import { faTags, faHome, faFileText } from "@fortawesome/free-solid-svg-icons"
-import { ITag } from "../../interface"
+import { ITag, IPost } from "../../interface"
 import Tag from "../../components/_tag"
+import { data } from "autoprefixer"
+import Spinner from "../../components/_spinner"
 
-export const getServerSideProps: GetServerSideProps = async context => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: [],
+    fallback: true,
+  }
+}
+
+export const getStaticProps: GetStaticProps = async context => {
   let data = null
-  // const slug = context.query.slug
-  const url = `${apiBaseUrl}/api/posts/${context.query.slug}/`
+  const url = `${apiBaseUrl}/api/posts/${context.params?.slug}/`
 
-  try {
-    const [response] = await Promise.all([fetch(url)])
-    if (response.status === 404) {
-      return {
-        redirect: {
-          destination: "404",
-          permanent: false,
-        },
-      }
+  const res = await fetch(url)
+  data = await res.json()
+
+  if (res.status === 404) {
+    return {
+      notFound: true,
     }
-    ;[data] = await Promise.all([response.json()])
-  } catch (err: any) {
-    throw new Error(err)
   }
 
   return {
     props: {
       data,
     },
+    revalidate: 10,
   }
 }
 
 const Index = ({
   data,
-}: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element => {
-  const _data = data
-  const digest = `${_data.digest.slice(0, 100)}...`
+}: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element => {
+  const router = useRouter()
+  if (router.isFallback) {
+    return (
+      <>
+        <Spinner />
+      </>
+    )
+  }
+
+  const _data: IPost = data
+  const digest = `${_data.digest?.slice(0, 100)}...`
   const created_at = moment.unix(_data.created_at_ts)
-  const tagNumber = Number(_data.tags.length)
+  const tagNumber = Number(_data.tags?.length)
 
   return (
     <Layout
@@ -107,7 +126,7 @@ const Index = ({
             <ReactMarkdown
               className="prose prose-neutral font-light max-w-none"
               remarkPlugins={[gfm]}>
-              {_data.content}
+              {_data.content ? _data.content : ""}
             </ReactMarkdown>
           </article>
         </div>
