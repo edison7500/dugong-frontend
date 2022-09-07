@@ -29,7 +29,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async context => {
   let data = null
-  const url = `${apiBaseUrl}/api/posts/${context.params.slug}/`
+  const url = `${apiBaseUrl}/api/posts/${context.params?.slug}/`
 
   const res = await fetch(url)
   data = await res.json()
@@ -126,7 +126,7 @@ const Index = ({
             <ReactMarkdown
               className="prose prose-neutral font-light max-w-none"
               remarkPlugins={[gfm]}>
-              {_data.content}
+              {_data.content ? _data.content : ""}
             </ReactMarkdown>
           </article>
         </div>
