@@ -41,7 +41,12 @@ module.exports = {
     ]
   },
   images: {
-    domains: ["img.jiaxin.im", "static.jiaxin.im"],
+    domains: [
+      "img.jiaxin.im",
+      "static.jiaxin.im",
+      "web-platforms.sfo2.cdn.digitaloceanspaces.com",
+      "web-platforms.sfo2.digitaloceanspaces.com",
+    ],
     minimumCacheTTL: 86400,
   },
   reactStrictMode: true,
