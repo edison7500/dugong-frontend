@@ -3,6 +3,7 @@ import "../styles/globals.css"
 import "@fortawesome/fontawesome-svg-core/styles.css"
 // import Script from "next/script"
 import Router from "next/router"
+// @ts-ignore
 import withGA from "next-ga"
 
 import type { AppProps } from "next/app"
