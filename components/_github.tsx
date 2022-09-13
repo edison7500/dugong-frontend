@@ -18,8 +18,8 @@ const Github = () => {
           className="block px-6 py-2 border-b border-gray-400
                 w-full
                 rounded-t-lg
-                bg-gray-400
-                text-white
+                bg-base-300
+                text-base-content
                 cursor-pointer">
           <h3 className="font-bold">GitHub</h3>
         </div>

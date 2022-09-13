@@ -47,8 +47,8 @@ const Index = ({
   return (
     <Layout title={tutorial.title} description={digest}>
       <div className="container flex justify-center mx-auto">
-        <div className="bg-white shrink w-8/12 py-6 px-8 rounded-lg shadow-md">
-          <h1 className="mb-4 text-3xl font-bold text-center">
+        <div className="bg-base-100 shrink w-8/12 py-6 px-8 rounded-lg shadow-md">
+          <h1 className="mb-4 text-3xl font-bold text-center text-base-content">
             {tutorial.title}
           </h1>
 
@@ -58,7 +58,8 @@ const Index = ({
               {created_at.format("yyyy-MM-DD")}
             </span>
           </div>
-          <hr className="my-4 text-slate-400" />
+
+          <div className="divider"></div>
 
           <ReactMarkdown
             className="prose prose-neutral font-light max-w-none"
@@ -66,7 +67,7 @@ const Index = ({
             {data.content}
           </ReactMarkdown>
 
-          <hr className="mt-4 mb-10 text-slate-400" />
+          <div className="divider"></div>
 
           <Link href={data.origin_link}>
             <a

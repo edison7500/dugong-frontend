@@ -23,7 +23,7 @@ const Tutorial = (tutorial: Tutorial): JSX.Element => {
         <div className="p-6">
           <Link href={`/tutorials/${tutorial.slug}`}>
             <a title={tutorial.title}>
-              <h1 className="text-2l font-bold text-gray-700 hover:underline">
+              <h1 className="text-2l font-bold text-base-content hover:underline">
                 {tutorial.title}
               </h1>
             </a>

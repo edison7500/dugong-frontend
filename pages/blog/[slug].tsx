@@ -100,7 +100,7 @@ const Index = ({
             </h1>
 
             <div className="pt-4 flex justify-between">
-              <div className="text-sm text-gray-600">
+              <div className="text-sm text-base-content">
                 {tagNumber > 0 ? (
                   <FontAwesomeIcon icon={faTags} className="mr-2" />
                 ) : (
