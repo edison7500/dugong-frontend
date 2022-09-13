@@ -28,7 +28,6 @@ export const Header = (): JSX.Element => {
 
   useEffect(() => {
     themeChange(theme)
-    // 👆 false parameter is required for react project
   }, [])
 
   const handleCheck = (e: React.ChangeEvent<HTMLInputElement>) => {

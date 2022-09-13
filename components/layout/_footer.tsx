@@ -21,7 +21,7 @@ export const Footer = () => {
             href={
               "https://www.digitalocean.com/?refcode=6536aaf99f81&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"
             }>
-            <a target={"_blank"} rel="nofollow" className="btn btn-link">
+            <a target={"_blank"} rel="noreferrer" className="btn btn-link">
               <Image
                 src={
                   "https://web-platforms.sfo2.digitaloceanspaces.com/WWW/Badge%202.svg"
