@@ -44,7 +44,6 @@ module.exports = {
     domains: [
       "img.jiaxin.im",
       "static.jiaxin.im",
-      "web-platforms.sfo2.cdn.digitaloceanspaces.com",
       "web-platforms.sfo2.digitaloceanspaces.com",
     ],
     minimumCacheTTL: 86400,

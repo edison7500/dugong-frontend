@@ -4,9 +4,9 @@ import Image from "next/image"
 export const Footer = () => {
   return (
     <>
-      <footer className="footer items-center mt-20 p-4 bg-base-100 text-base-content">
+      <footer className="footer items-center mt-20 px-32 bg-base-100 text-base-content">
         <div className="items-center grid-flow-col">
-          <p className="text-md font-semibold footer-title">
+          <p className="text-md font-semibold">
             <Link href="https://nextjs.org">
               <a target="_blank" className="btn btn-link">
                 Power by Next.js.
