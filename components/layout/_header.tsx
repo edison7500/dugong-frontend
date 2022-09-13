@@ -24,8 +24,7 @@ const navigation = [
 ]
 
 export const Header = (): JSX.Element => {
-  const [theme, setTheme] = useState(false)
-
+  const [theme, setTheme] = useState(true)
   useEffect(() => {
     themeChange(theme)
   }, [])
