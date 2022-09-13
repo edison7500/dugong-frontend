@@ -4,7 +4,7 @@ import { MenuIcon, XIcon } from "@heroicons/react/outline"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPython } from "@fortawesome/free-brands-svg-icons"
 import { faSearch, faSun, faMoon } from "@fortawesome/free-solid-svg-icons"
-import { ChangeEvent, useState } from "react"
+// import { ChangeEvent} from "react"
 import { themeChange } from "theme-change"
 
 const classNames = ({ classes }: { classes: any[] }) => {
@@ -27,7 +27,7 @@ export const Header = (): JSX.Element => {
   //   false
   // )
 
-  const handleCheck = (e: ChangeEvent) => {
+  const handleCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
     const stats: boolean = e.target.checked
     themeChange(stats)
     // setTheme(stats)
