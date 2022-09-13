@@ -3,7 +3,9 @@ import { Disclosure } from "@headlessui/react"
 import { MenuIcon, XIcon } from "@heroicons/react/outline"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faPython } from "@fortawesome/free-brands-svg-icons"
-import { faSearch } from "@fortawesome/free-solid-svg-icons"
+import { faSearch, faSun, faMoon } from "@fortawesome/free-solid-svg-icons"
+import { ChangeEvent, useState } from "react"
+import { themeChange } from "theme-change"
 
 const classNames = ({ classes }: { classes: any[] }) => {
   return classes.filter(Boolean).join(" ")
@@ -20,7 +22,17 @@ const navigation = [
   // {name: '博客', href: '#', current: false},
 ]
 
-export const Header = () => {
+export const Header = (): JSX.Element => {
+  // const [theme, setTheme] = useState(
+  //   false
+  // )
+
+  const handleCheck = (e: ChangeEvent) => {
+    const stats: boolean = e.target.checked
+    themeChange(stats)
+    // setTheme(stats)
+  }
+
   return (
     <Disclosure as="nav" className="sticky top-0 z-50 bg-black">
       {({ open }) => (
@@ -38,6 +50,7 @@ export const Header = () => {
                   )}
                 </Disclosure.Button>
               </div>
+
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <Link href="/">
                   <a className="flex-shrink-0 flex items-center text-white hover:bg-neutral-700 px-3 rounded-md font-light">
@@ -73,6 +86,22 @@ export const Header = () => {
               </div>
 
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <div className="relative text-white mx-4 text-xl">
+                  <label className="swap swap-rotate">
+                    <input type="checkbox" onChange={handleCheck} />
+                    <FontAwesomeIcon
+                      icon={faSun}
+                      data-set-theme="light"
+                      className={"swap-on fill-current w-10 h-10"}
+                    />
+                    <FontAwesomeIcon
+                      icon={faMoon}
+                      data-set-theme="black"
+                      className={"swap-off fill-current w-10 h-10"}
+                    />
+                  </label>
+                </div>
+
                 <form
                   action={"/search/"}
                   className="hidden relative mr-3 md:mr-0 md:block text-gray-400">
