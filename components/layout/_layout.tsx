@@ -14,7 +14,7 @@ export const Layout = ({
     <>
       <Meta title={_title} description={description} canonical={canonical} />
       <Header />
-      <main className="px-6 py-8 bg-base-100">{children}</main>
+      <main className="px-16 py-8 bg-base-100">{children}</main>
       <Footer />
     </>
   )
