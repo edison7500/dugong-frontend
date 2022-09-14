@@ -22,12 +22,12 @@ module.exports = {
   // daisyUI config (optional)
   daisyui: {
     styled: true,
-    themes: ["light", "black"],
+    themes: ["light", "dark", "business"],
     base: true,
     utils: true,
     logs: true,
     rtl: false,
     prefix: "",
-    darkTheme: "black",
+    // darkTheme: "dark",
   },
 }

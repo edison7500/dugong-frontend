@@ -35,7 +35,10 @@ export const Header = (): JSX.Element => {
   }
 
   return (
-    <Disclosure as="nav" className="sticky top-0 z-50 bg-black">
+    <Disclosure
+      as="nav"
+      className="sticky top-0 z-50 bg-blend-darken"
+      data-theme="dark">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -70,10 +73,8 @@ export const Header = (): JSX.Element => {
                         <a
                           className={classNames({
                             classes: [
-                              item.current
-                                ? "bg-neutral-900 text-white"
-                                : "bg-neutral-800 text-white hover:bg-neutral-700 hover:text-white",
-                              "px-3 py-2 rounded-md text-base font-light",
+                              item.current ? "btn-active" : "",
+                              "px-3 py-2 text-base-content btn btn-ghost",
                             ],
                           })}
                           aria-current={item.current ? "page" : undefined}
@@ -87,7 +88,7 @@ export const Header = (): JSX.Element => {
               </div>
 
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <div className="relative text-white mx-4 text-xl">
+                <div className="relative text-base-content mx-4 text-xl">
                   <label className="swap swap-rotate">
                     <input type="checkbox" onChange={handleCheck} />
                     <FontAwesomeIcon
@@ -97,7 +98,7 @@ export const Header = (): JSX.Element => {
                     />
                     <FontAwesomeIcon
                       icon={faMoon}
-                      data-set-theme="black"
+                      data-set-theme="dark"
                       className={"swap-off fill-current w-10 h-10"}
                     />
                   </label>

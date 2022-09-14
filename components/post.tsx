@@ -28,9 +28,7 @@ const Post = (post: IPost): JSX.Element => {
         <div className="text-sm">
           {tagNumber > 0 ? (
             <FontAwesomeIcon icon={faTags} className="mr-2" />
-          ) : (
-            ""
-          )}
+          ) : null}
           {post.tags?.map((tag: ITag) => (
             <span key={tag.slug}>
               <Tag {...tag} />
