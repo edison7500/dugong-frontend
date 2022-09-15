@@ -2,6 +2,8 @@ import { config } from "@fortawesome/fontawesome-svg-core"
 import "../styles/globals.css"
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import Script from "next/script"
+import { DefaultSeo } from "next-seo"
+import SEO from "../next-seo.config"
 
 import type { AppProps } from "next/app"
 
@@ -30,6 +32,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
       />
 
+      <DefaultSeo {...SEO} />
       <Component {...pageProps} />
     </>
   )

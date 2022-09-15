@@ -9,13 +9,11 @@ const Index = () => {
     <Layout title={`Page Not Found | Python 观察员`}>
       <main id="content" role="main">
         <div className="text-center py-10 px-4 sm:px-6 lg:px-8">
-          <h1 className="block text-7xl font-bold text-gray-800 sm:text-9xl dark:text-white">
+          <h1 className="block text-7xl font-bold text-base-content sm:text-9xl">
             404
           </h1>
-          <p className="mt-3 text-gray-600 dark:text-gray-400">
-            Oops, something went wrong.
-          </p>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="mt-3 text-base-content">Oops, something went wrong.</p>
+          <p className="text-base-content">
             Sorry, we couldn&apos;t find your page.
           </p>
           <div className="mt-5 flex flex-col justify-center items-center gap-2 sm:flex-row sm:gap-3">
