@@ -1,6 +1,6 @@
 import {
-  GetServerSideProps,
-  InferGetServerSidePropsType,
+  // GetServerSideProps,
+  // InferGetServerSidePropsType,
   GetStaticPaths,
   GetStaticProps,
   InferGetStaticPropsType,
@@ -8,6 +8,7 @@ import {
 import Link from "next/link"
 import { useRouter } from "next/router"
 import moment from "moment"
+import { NextSeo } from "next-seo"
 import ReactMarkdown from "react-markdown"
 import { Layout } from "../../components/layout"
 import { apiBaseUrl } from "../../lib/constants"
@@ -17,7 +18,7 @@ import { faClock } from "@fortawesome/free-regular-svg-icons"
 import { faTags, faHome, faFileText } from "@fortawesome/free-solid-svg-icons"
 import { ITag, IPost } from "../../interface"
 import Tag from "../../components/_tag"
-import { data } from "autoprefixer"
+// import { data } from "autoprefixer"
 import Spinner from "../../components/_spinner"
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -63,13 +64,29 @@ const Index = ({
   const _data: IPost = data
   const digest = `${_data.digest?.slice(0, 100)}...`
   const created_at = moment.unix(_data.created_at_ts)
+  const updated_at = moment.unix(_data.updated_at_ts)
   const tagNumber = Number(_data.tags?.length)
 
+  const openGraph = {
+    title: _data.title,
+    description: digest,
+    url: `https://www.jiaxin.im/blog/${_data.slug}`,
+    type: "article",
+    article: {
+      publishedTime: created_at.format(),
+      modifiedTime: updated_at.format(),
+      tags: _data.tags?.map((tag: ITag) => tag.name) || [],
+    },
+  }
+
   return (
-    <Layout
-      title={`${_data.title} | Python 观察员`}
-      description={digest}
-      canonical={`https://www.jiaxin.im/blog/${_data.slug}`}>
+    <Layout title={`${_data.title} | Python 观察员`}>
+      <NextSeo
+        title={`${_data.title} | Python 观察员`}
+        description={digest}
+        openGraph={openGraph}
+      />
+
       <div className="container flex justify-center mx-auto">
         <div className="bg-base-100 shrink w-8/12">
           <div className="text-sm breadcrumbs">

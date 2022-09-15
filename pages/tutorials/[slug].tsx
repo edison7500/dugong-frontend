@@ -1,13 +1,13 @@
 import { Layout } from "../../components/layout"
 import { GetServerSideProps, InferGetServerSidePropsType } from "next"
-import { apiBaseUrl } from "../../lib/constants"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import ReactMarkdown from "react-markdown"
 import gfm from "remark-gfm"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faClock } from "@fortawesome/free-regular-svg-icons"
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons"
 import moment from "moment"
 import Link from "next/link"
+import { apiBaseUrl } from "../../lib/constants"
 
 export const getServerSideProps: GetServerSideProps = async context => {
   let data
@@ -42,6 +42,7 @@ const Index = ({
   const tutorial = data
   const digest = `${tutorial.content.slice(0, 100)}...`
   const created_at = moment.unix(tutorial.created_at_ts)
+  const updated_at = moment.unix(tutorial.updated_at_ts)
 
   // @ts-ignore
   return (
