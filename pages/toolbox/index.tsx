@@ -32,7 +32,9 @@ const toolBox = ({
 
   return (
     <>
-      <Layout></Layout>
+      <Layout title={"toolbox"}>
+        <div>test</div>
+      </Layout>
     </>
   )
 }
