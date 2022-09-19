@@ -15,6 +15,11 @@ const Asider = dynamic(() => import("../components/layout/_aside"), {
 })
 
 export const getServerSideProps: GetServerSideProps = async context => {
+  context.res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=1, stale-while-revalidate=59",
+  )
+
   let data = null
   const page = context.query.page || 1
   try {
@@ -53,9 +58,7 @@ const Home: NextPage = ({
       <div className="container flex justify-between mx-auto">
         <div className="w-full lg:w-8/12">
           {results.map((post: IPost) => (
-            <div
-              className="mt-6 card card-bordered card-normal shadow-md rounded-md"
-              key={post.slug}>
+            <div key={post.slug}>
               <Post {...post} />
             </div>
           ))}

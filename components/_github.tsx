@@ -13,9 +13,9 @@ const Github = () => {
 
   return (
     <div className="flex justify-center">
-      <div className="rounded-lg border border-gray-200 w-96 text-base-content">
+      <div className="w-96 rounded-lg border border-base-300 text-base-content">
         <div
-          className="block px-6 py-2 border-b border-gray-400
+          className="block px-6 py-2
                 w-full
                 rounded-t-lg
                 bg-base-300
@@ -26,14 +26,17 @@ const Github = () => {
         {repos.map(r => (
           <div
             className="block px-6 py-2 border-b border-gray-400
+                bg-base-100
                 w-full
-                hover:underline
-                focus:outline-none focus:ring-0 focus:bg-gray-200 focus:text-gray-600
                 transition
                 cursor-pointer"
             key={r}>
             <Link href={`https://github.com/edison7500/${r}`}>
-              <a target="_blank" rel="noreferrer" title={r}>
+              <a
+                className={"font-extralight link link-hover"}
+                target="_blank"
+                rel="noreferrer"
+                title={r}>
                 <FontAwesomeIcon icon={faGithub} />
                 <span className="ml-2">{r}</span>
               </a>

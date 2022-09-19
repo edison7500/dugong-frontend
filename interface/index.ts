@@ -1,4 +1,5 @@
 import { ReactNode } from "react"
+import { Url } from "url"
 
 export interface MetaProps {
   title?: string
@@ -38,4 +39,13 @@ export interface Tutorial {
   published_at_ts: string
   tags?: ITag[]
   origin_link?: string
+}
+
+export interface ITool {
+  slug: string
+  icon: string
+  title: string
+  description?: string | undefined
+  tags: ITag[]
+  url: string
 }
