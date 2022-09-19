@@ -1,11 +1,8 @@
 import { GetServerSideProps, InferGetServerSidePropsType } from "next"
-// import Link from "next/link"
-import Image from "next/image"
 import { apiBaseUrl } from "../../lib/constants"
-
 import { Layout } from "../../components/layout"
+import ToolCell from "../../components/_toolcell"
 import { ITool } from "../../interface"
-import ToolCell from "./_toolcell"
 
 export const getServerSideProps: GetServerSideProps = async context => {
   let data = null

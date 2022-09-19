@@ -2,8 +2,8 @@ import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Image from "next/image"
 import Link from "next/link"
-import { ITool } from "../../interface"
-import { rgbDataURL } from "../../lib/utils"
+import { ITool } from "../interface"
+import { rgbDataURL } from "../lib/utils"
 
 const ToolCell = (tool: ITool): JSX.Element => {
   const description = `${tool.description?.slice(0, 100)}...`
