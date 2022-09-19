@@ -82,7 +82,7 @@ const Search: NextPage = (
           </form>
 
           {results.map((post: IPost) => (
-            <div className="mt-6" key={post.slug}>
+            <div key={post.slug}>
               <Post {...post} />
             </div>
           ))}
