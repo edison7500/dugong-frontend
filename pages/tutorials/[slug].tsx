@@ -48,25 +48,29 @@ const Index = ({
   return (
     <Layout title={tutorial.title} description={digest}>
       <div className="container flex justify-center mx-auto">
-        <div className="bg-base-100 shrink w-8/12 py-6 px-8 rounded-lg shadow-md">
-          <h1 className="mb-4 text-3xl font-bold text-center text-base-content">
-            {tutorial.title}
-          </h1>
+        <div className="shrink w-8/12">
+          <article className="bg-base-200 rounded-lg shadow-xl p-6">
+            <h1 className="mb-4 text-3xl font-bold text-center text-base-content">
+              {tutorial.title}
+            </h1>
 
-          <div className="py-4 text-sm text-slate-400">
-            <FontAwesomeIcon icon={faClock} />
-            <span className="ml-1 font-light">
-              {created_at.format("yyyy-MM-DD")}
-            </span>
-          </div>
+            <div className="flex justify-end">
+              <div className="text-sm font-light text-slate-400">
+                <FontAwesomeIcon icon={faClock} />
+                <span className="ml-1 font-light">
+                  {created_at.format("yyyy-MM-DD")}
+                </span>
+              </div>
+            </div>
 
-          <div className="divider"></div>
+            <div className="divider"></div>
 
-          <ReactMarkdown
-            className="prose prose-neutral font-light max-w-none"
-            remarkPlugins={[gfm]}>
-            {data.content}
-          </ReactMarkdown>
+            <ReactMarkdown
+              className="prose prose-neutral font-light max-w-none"
+              remarkPlugins={[gfm]}>
+              {data.content}
+            </ReactMarkdown>
+          </article>
 
           <div className="divider"></div>
 
@@ -74,7 +78,7 @@ const Index = ({
             <a
               target="_blank"
               rel="noreferrer"
-              className="text-gray-400 hover:underline">
+              className="text-base-content link linl-hover">
               <FontAwesomeIcon icon={faExternalLinkAlt} />
               <span className="ml-2">{data.origin_link}</span>
             </a>

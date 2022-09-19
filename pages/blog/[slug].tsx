@@ -81,8 +81,8 @@ const Index = ({
       />
 
       <div className="container flex justify-center mx-auto">
-        <div className="bg-base-100 shrink w-8/12">
-          <div className="px-8 text-sm breadcrumbs">
+        <div className="shrink w-8/12">
+          <div className="text-sm breadcrumbs">
             <ul>
               <li>
                 <Link href={"/"}>
@@ -100,7 +100,7 @@ const Index = ({
           </div>
 
           <article
-            className="mt-4 p-8 rounded-lg shadow-md border-slate-800"
+            className="mt-4 p-8 rounded-lg shadow-xl bg-base-200"
             itemScope={true}
             itemType="https://schema.org/Article">
             <h1
