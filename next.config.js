@@ -31,6 +31,7 @@ module.exports = {
   trailingSlash: true,
   poweredByHeader: false,
   compress: true,
+  swcMinify: true,
   async headers() {
     return [
       {

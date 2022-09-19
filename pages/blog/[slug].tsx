@@ -1,10 +1,4 @@
-import {
-  // GetServerSideProps,
-  // InferGetServerSidePropsType,
-  GetStaticPaths,
-  GetStaticProps,
-  InferGetStaticPropsType,
-} from "next"
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import moment from "moment"
@@ -18,7 +12,6 @@ import { faClock } from "@fortawesome/free-regular-svg-icons"
 import { faTags, faHome, faFileText } from "@fortawesome/free-solid-svg-icons"
 import { ITag, IPost } from "../../interface"
 import Tag from "../../components/_tag"
-// import { data } from "autoprefixer"
 import Spinner from "../../components/_spinner"
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -45,7 +38,7 @@ export const getStaticProps: GetStaticProps = async context => {
     props: {
       data,
     },
-    revalidate: 10,
+    revalidate: 600,
   }
 }
 
@@ -89,7 +82,7 @@ const Index = ({
 
       <div className="container flex justify-center mx-auto">
         <div className="bg-base-100 shrink w-8/12">
-          <div className="text-sm breadcrumbs">
+          <div className="px-8 text-sm breadcrumbs">
             <ul>
               <li>
                 <Link href={"/"}>
