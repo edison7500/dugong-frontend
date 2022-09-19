@@ -17,8 +17,9 @@ const Asider = dynamic(() => import("../components/layout/_aside"), {
 export const getServerSideProps: GetServerSideProps = async context => {
   context.res.setHeader(
     "Cache-Control",
-    "s-maxage=20, stale-while-revalidate=60",
+    "public, s-maxage=1, stale-while-revalidate=59",
   )
+
   let data = null
   const page = context.query.page || 1
   try {

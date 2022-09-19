@@ -46,6 +46,7 @@ module.exports = {
       "img.jiaxin.im",
       "static.jiaxin.im",
       "web-platforms.sfo2.digitaloceanspaces.com",
+      "gateway.storjshare.io",
     ],
     minimumCacheTTL: 86400,
   },
