@@ -58,9 +58,7 @@ const Home: NextPage = ({
       <div className="container flex justify-between mx-auto">
         <div className="w-full lg:w-8/12">
           {results.map((post: IPost) => (
-            <div
-              className="mt-6 card card-bordered card-normal shadow-md rounded-md"
-              key={post.slug}>
+            <div key={post.slug}>
               <Post {...post} />
             </div>
           ))}
