@@ -16,7 +16,7 @@ const Post = (post: IPost): JSX.Element => {
       <h1 className="card-title">
         <Link href={`/blog/${post.slug}`}>
           <a
-            className="text-2xl font-bold text-base-content hover:underline"
+            className="text-2xl font-bold text-base-content link link-hover"
             title={post.title}>
             {post.title}
           </a>

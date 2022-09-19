@@ -15,6 +15,7 @@ const Tutorial = (tutorial: Tutorial): JSX.Element => {
           src={_cover_url}
           width={"480"}
           height={"240"}
+          quality={75}
           layout="responsive"
           placeholder="blur"
           blurDataURL={rgbDataURL({ r: 248, g: 248, b: 248 })}
@@ -23,7 +24,7 @@ const Tutorial = (tutorial: Tutorial): JSX.Element => {
         <div className="p-6">
           <Link href={`/tutorials/${tutorial.slug}`}>
             <a title={tutorial.title}>
-              <h1 className="text-2l font-bold text-base-content hover:underline">
+              <h1 className="text-2l font-bold text-base-content link link-hover">
                 {tutorial.title}
               </h1>
             </a>
