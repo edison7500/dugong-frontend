@@ -32,6 +32,17 @@ module.exports = {
   poweredByHeader: false,
   compress: true,
   swcMinify: true,
+  images: {
+    domains: [
+      "img.jiaxin.im",
+      "static.jiaxin.im",
+      "web-platforms.sfo2.digitaloceanspaces.com",
+      "gateway.storjshare.io",
+    ],
+    formats: ["image/webp"],
+    minimumCacheTTL: 86400,
+  },
+  reactStrictMode: true,
   async headers() {
     return [
       {
@@ -41,14 +52,4 @@ module.exports = {
       },
     ]
   },
-  images: {
-    domains: [
-      "img.jiaxin.im",
-      "static.jiaxin.im",
-      "web-platforms.sfo2.digitaloceanspaces.com",
-      "gateway.storjshare.io",
-    ],
-    minimumCacheTTL: 86400,
-  },
-  reactStrictMode: true,
 }

@@ -12,10 +12,11 @@ const ToolCell = (tool: ITool): JSX.Element => {
       <div className={"card glass bg-base-100 shadow-xl"} key={tool.slug}>
         <figure className="py-4">
           <Image
+            className={"rounded-md"}
             src={tool.icon}
             width={64}
             height={64}
-            layout="fixed"
+            layout="intrinsic"
             alt={tool.title}
             quality={75}
             placeholder="blur"

@@ -40,9 +40,9 @@ const toolBox = ({
         <div className="container mx-auto">
           <div className="grid grid-cols-4 gap-4">
             {results.map((tool: ITool) => (
-              <>
+              <div key={tool.slug}>
                 <ToolCell {...tool} />
-              </>
+              </div>
             ))}
           </div>
         </div>
