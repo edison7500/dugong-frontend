@@ -6,7 +6,7 @@ import { ITool } from "../interface"
 import { rgbDataURL } from "../lib/utils"
 
 const ToolCell = (tool: ITool): JSX.Element => {
-  const description = `${tool.description?.slice(0, 100)}...`
+  // const description = `${tool.description?.slice(0, 100)}...`
   return (
     <>
       <div className={"card glass bg-base-100 shadow-xl"} key={tool.slug}>
@@ -26,7 +26,9 @@ const ToolCell = (tool: ITool): JSX.Element => {
         </figure>
         <div className="card-body">
           <h2 className="card-title">{tool.title}</h2>
-          <p className={"font-light text-xs"}>{description}</p>
+          <p className={"font-light text-xs line-clamp-3"}>
+            {tool.description}
+          </p>
 
           <div className="card-actions justify-end">
             <Link href={tool.url}>

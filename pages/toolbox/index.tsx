@@ -37,7 +37,7 @@ const toolBox = ({
   return (
     <>
       <Layout title={"ToolBox | Python观察员"}>
-        <div className="container mx-auto">
+        <div className="container mx-auto h-full">
           <div className="grid grid-cols-4 gap-4">
             {results.map((tool: ITool) => (
               <div key={tool.slug}>
