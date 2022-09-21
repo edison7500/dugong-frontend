@@ -3,8 +3,14 @@ import { apiBaseUrl } from "../../lib/constants"
 import { Layout } from "../../components/layout"
 import ToolCell from "../../components/_toolcell"
 import { ITool } from "../../interface"
+import Pagination from "../../components/_pagination"
 
 export const getServerSideProps: GetServerSideProps = async context => {
+  context.res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=10, stale-while-revalidate=59",
+  )
+
   let data = null
   const url = `${apiBaseUrl}/api/toolboxes/`
 
@@ -27,7 +33,6 @@ export const getServerSideProps: GetServerSideProps = async context => {
 const toolBox = ({
   data,
 }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element => {
-  // console.info(data)
   const results = data.results
   let pageCount = Math.ceil(data.count / 30)
   if (data.count % 30 > 0) {
@@ -45,6 +50,8 @@ const toolBox = ({
               </div>
             ))}
           </div>
+
+          <Pagination pageCount={pageCount} />
         </div>
       </Layout>
     </>
