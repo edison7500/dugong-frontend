@@ -3,6 +3,7 @@ import { apiBaseUrl } from "../../lib/constants"
 import { Layout } from "../../components/layout"
 import ToolCell from "../../components/_toolcell"
 import { ITool } from "../../interface"
+import { queryParams } from "../../lib/utils"
 import Pagination from "../../components/_pagination"
 
 export const getServerSideProps: GetServerSideProps = async context => {
@@ -12,7 +13,13 @@ export const getServerSideProps: GetServerSideProps = async context => {
   )
 
   let data = null
-  const url = `${apiBaseUrl}/api/toolboxes/`
+  const page = context.query.page || 1
+  const params = {
+    page: page,
+    size: 18,
+  }
+
+  const url = `${apiBaseUrl}/api/toolboxes/?${queryParams(params)}`
 
   const res = await fetch(url)
   data = await res.json()
@@ -34,6 +41,7 @@ const toolBox = ({
   data,
 }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element => {
   const results = data.results
+  const previous = data.previous
   let pageCount = Math.ceil(data.count / 30)
   if (data.count % 30 > 0) {
     pageCount += 1
@@ -43,7 +51,7 @@ const toolBox = ({
     <>
       <Layout title={"ToolBox | Python观察员"}>
         <div className="container mx-auto h-full">
-          <div className="grid grid-cols-4 gap-4">
+          <div className="grid grid-cols-4 gap-4 py-4">
             {results.map((tool: ITool) => (
               <div key={tool.slug}>
                 <ToolCell {...tool} />
@@ -51,7 +59,11 @@ const toolBox = ({
             ))}
           </div>
 
-          <Pagination pageCount={pageCount} />
+          {previous ? (
+            <div className="py-4">
+              <Pagination pageCount={pageCount} />
+            </div>
+          ) : null}
         </div>
       </Layout>
     </>
