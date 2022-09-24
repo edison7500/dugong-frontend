@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { Disclosure } from "@headlessui/react"
 import { MenuIcon, XIcon } from "@heroicons/react/outline"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -24,14 +24,12 @@ const navigation = [
 ]
 
 export const Header = (): JSX.Element => {
-  const [theme, setTheme] = useState(true)
   useEffect(() => {
-    themeChange(theme)
+    themeChange(false)
   }, [])
 
   const handleCheck = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTheme(e.target.checked)
-    themeChange(theme)
+    themeChange(e.target.checked)
   }
 
   return (
