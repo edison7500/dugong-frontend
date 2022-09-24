@@ -40,7 +40,7 @@ module.exports = {
       "gateway.storjshare.io",
     ],
     formats: ["image/webp"],
-    minimumCacheTTL: 86400,
+    minimumCacheTTL: 2592000,
   },
   reactStrictMode: true,
   async headers() {
