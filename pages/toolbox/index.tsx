@@ -60,7 +60,7 @@ const toolBox = ({
           </div>
 
           {previous ? (
-            <div className="py-4">
+            <div className="my-4">
               <Pagination pageCount={pageCount} />
             </div>
           ) : null}
