@@ -61,15 +61,12 @@ const Search: NextPage = (
       <div className="container flex justify-center mx-auto">
         <div className="w-full lg:w-8/12">
           <form
-            className="max-w-2xl mx-auto mb-10"
+            className="form-control max-w-2xl mx-auto mb-10"
             action={"/search/"}
             method={`GET`}>
-            <div className="flex">
-              <span className="inline-flex items-center px-3 bg-white rounded-l-full text-gray-400">
-                <FontAwesomeIcon icon={faSearch} />
-              </span>
+            <label className="input-group input-group-lg">
               <input
-                className="p-2 block text-md mx-auto w-full bg-white rounded-r-full focus:ring-0"
+                className="w-full input input-bordered"
                 placeholder={"Search..."}
                 name="q"
                 value={query}
@@ -78,7 +75,10 @@ const Search: NextPage = (
                   setQuery(e.target.value)
                 }}
               />
-            </div>
+              <button type="submit" className="btn btn-square">
+                <FontAwesomeIcon icon={faSearch} />
+              </button>
+            </label>
           </form>
 
           {results.map((post: IPost) => (
