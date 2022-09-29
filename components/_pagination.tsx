@@ -29,7 +29,7 @@ const Pagination = ({
   return (
     <nav
       className={
-        "btn-group justify-center items-center mt-6"
+        "btn-group justify-center items-center mt-16"
         // "container flex flex-row justify-center items-center mx-auto my-6"
       }
       aria-label="Page navigation">

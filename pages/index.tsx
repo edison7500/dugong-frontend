@@ -48,7 +48,7 @@ const Home: NextPage = ({
   data,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const results = data.results
-  const previous = data.previous
+  const next = data.next
   let pageCount = Math.ceil(data.count / 30)
   if (data.count % 30 > 0) {
     pageCount += 1
@@ -64,7 +64,7 @@ const Home: NextPage = ({
             </div>
           ))}
 
-          {previous ? <Pagination pageCount={pageCount} /> : null}
+          {next ? <Pagination pageCount={pageCount} /> : null}
         </div>
 
         <Asider />
