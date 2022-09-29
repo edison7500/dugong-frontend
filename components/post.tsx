@@ -12,7 +12,7 @@ const Post = (post: IPost): JSX.Element => {
   const tagNumber = Number(post.tags?.length)
 
   return (
-    <div className="mt-6 card bg-base-200 shadow-xl">
+    <div className="mt-6 card card-compact md:card-normal bg-base-200 shadow-xl">
       <div className="card-body">
         <h1 className="card-title">
           <Link href={`/blog/${post.slug}`}>
@@ -25,8 +25,8 @@ const Post = (post: IPost): JSX.Element => {
         </h1>
         <p className="mt-4 text-base-content font-light">{digest}...</p>
 
-        <div className="mt-6 card-actions justify-between">
-          <div className="text-sm">
+        <div className="mt-6 card-actions justify-between line-clamp-1">
+          <div className="text-sm ">
             {tagNumber > 0 ? (
               <FontAwesomeIcon icon={faTags} className="mr-2" />
             ) : null}

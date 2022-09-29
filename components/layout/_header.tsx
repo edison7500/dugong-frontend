@@ -88,7 +88,11 @@ export const Header = (): JSX.Element => {
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <div className="relative text-base-content mx-4 text-xl">
                   <label className="swap swap-rotate">
-                    <input type="checkbox" onChange={handleCheck} />
+                    <input
+                      type="checkbox"
+                      className="hidden"
+                      onChange={handleCheck}
+                    />
                     <FontAwesomeIcon
                       icon={faSun}
                       data-set-theme="light"

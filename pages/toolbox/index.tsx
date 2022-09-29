@@ -20,7 +20,6 @@ export const getServerSideProps: GetServerSideProps = async context => {
   }
 
   const url = `${apiBaseUrl}/api/toolboxes/?${queryParams(params)}`
-
   const res = await fetch(url)
   data = await res.json()
 
@@ -41,7 +40,7 @@ const toolBox = ({
   data,
 }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element => {
   const results = data.results
-  const previous = data.previous
+  const next = data.next
   let pageCount = Math.ceil(data.count / 30)
   if (data.count % 30 > 0) {
     pageCount += 1
@@ -59,7 +58,7 @@ const toolBox = ({
             ))}
           </div>
 
-          {previous ? (
+          {next ? (
             <div className="my-4">
               <Pagination pageCount={pageCount} />
             </div>
