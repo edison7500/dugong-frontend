@@ -12,7 +12,7 @@ const Post = (post: IPost): JSX.Element => {
   const tagNumber = Number(post.tags?.length)
 
   return (
-    <div className="mt-6 card bg-base-200 shadow-xl">
+    <div className="mt-6 card card-compact md:card-normal bg-base-200 shadow-xl">
       <div className="card-body">
         <h1 className="card-title">
           <Link href={`/blog/${post.slug}`}>
