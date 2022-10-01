@@ -25,8 +25,8 @@ const Post = (post: IPost): JSX.Element => {
         </h1>
         <p className="mt-4 text-base-content font-light">{digest}...</p>
 
-        <div className="mt-6 card-actions justify-between line-clamp-1">
-          <div className="text-sm ">
+        <div className="mt-6 card-actions justify-between">
+          <div className="text-sm hidden md:block">
             {tagNumber > 0 ? (
               <FontAwesomeIcon icon={faTags} className="mr-2" />
             ) : null}
