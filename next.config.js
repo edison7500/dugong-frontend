@@ -30,6 +30,7 @@ const securityHeaders = [
 module.exports = {
   trailingSlash: true,
   poweredByHeader: false,
+  reactStrictMode: true,
   compress: true,
   swcMinify: true,
   images: {
@@ -43,7 +44,6 @@ module.exports = {
     formats: ["image/webp"],
     minimumCacheTTL: 2592000,
   },
-  reactStrictMode: true,
   async headers() {
     return [
       {
