@@ -2,6 +2,7 @@ import { Props } from "../../interface"
 import Meta from "../_meta"
 import { Header } from "./_header"
 import { Footer } from "./_footer"
+import { AnalyticsWrapper } from '../analytics';
 
 export const Layout = ({
   children,
@@ -17,6 +18,8 @@ export const Layout = ({
       <main className="px-4 py-8 lg:p-8  bg-base-100">{children}</main>
       {/* <main className="bg-base-100">{children}</main> */}
       <Footer />
+
+      <AnalyticsWrapper />
     </>
   )
 }
