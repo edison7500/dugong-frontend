@@ -5,14 +5,15 @@ import { queryParams } from "../../lib/utils"
 import PhotoCell from "../../components/_photocell"
 import { Photo } from "../../interface/photo"
 
+const unsplashUrl = "https://api.unsplash.com/users/truth6474/photos"
+
 export const getServerSideProps: GetServerSideProps = async context => {
   let data = null
-
-  const unsplashUrl = "https://api.unsplash.com/users/truth6474/photos"
 
   const params = {
     client_id: unsplashAccessKey,
     per_page: 12,
+    page: 1,
   }
 
   try {

@@ -2,7 +2,7 @@ import { Photo } from "../interface/photo"
 import Image from "next/image"
 
 const photoCell = (photo: Photo): JSX.Element => {
-  console.log(photo);
+  // console.log(photo);
 
   return (
     <div className="card card-compact bg-base-200 shadow-xl m-4">
