@@ -41,7 +41,7 @@ const Photos: NextPage = ({data}: InferGetServerSidePropsType<typeof getServerSi
     <div className="container px-5 mx-auto">
       <div className="flex flex-wrap -m-4">
         {_data.map((photo: Photo) => (
-          <div>
+          <div className="md:w-1/4" key={photo.id}>
             <PhotoCell {...photo} />
           </div>
         ))}

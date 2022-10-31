@@ -3,18 +3,19 @@ import Image from "next/image"
 
 
 const photoCell = (photo: Photo): JSX.Element => {
-  // console.log(photo);
+  console.log(photo);
 
   return (
-  <div className="h-full border-1 shadow-md rounded-lg overflow-hidden">
+  <div className="card card-compact bg-base-100 shadow-xl m-4">
+    <figure>
     <Image 
-    // className="lg:h-48 md:h-36 w-full object-cover object-center"
-    // layout="responsive"
-          width={"480"}
-          height={"240"}
+          width={"300"}
+          height={"200"}
           quality={75} 
           src={photo.urls.regular}
+          priority
            />
+      </figure>
   </div>
   )
 }
