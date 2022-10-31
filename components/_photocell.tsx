@@ -21,11 +21,6 @@ const photoCell = (photo: Photo): JSX.Element => {
           }}
         />
       </figure>
-      {/* <div className="card-body">
-      <div className="card-actions">
-        <button className="btn btn-ghost">Download</button>
-      </div>
-      </div> */}
     </div>
   )
 }
