@@ -38,6 +38,7 @@ module.exports = {
       "static.jiaxin.im",
       "web-platforms.sfo2.digitaloceanspaces.com",
       "gateway.storjshare.io",
+      "images.unsplash.com",
     ],
     formats: ["image/webp"],
     minimumCacheTTL: 2592000,
