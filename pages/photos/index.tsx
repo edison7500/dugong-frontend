@@ -12,6 +12,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
   const params = {
     client_id: unsplashAccessKey,
+    per_page: 12,
   }
 
   try {

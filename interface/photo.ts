@@ -1,4 +1,4 @@
-export interface PhotoUrl {
+interface PhotoUrl {
   raw: string
   full: string
   regular: string
@@ -7,10 +7,18 @@ export interface PhotoUrl {
   small_s3: string
 }
 
+interface PhotoLink {
+  self: string,
+  html: string,
+  download: string,
+  download_location: string
+}
+
 export interface Photo {
   id: number
   created_at: Date
   updated_at: Date
   blur_hash: string
-  urls: PhotoUrl
+  urls: PhotoUrl,
+  links: PhotoLink,
 }
