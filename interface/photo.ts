@@ -1,3 +1,16 @@
+interface User {
+  id: string
+  username: string
+  name: string
+  profile_image: profileImage
+}
+
+interface profileImage {
+  small: string
+  medium: string
+  large: string
+}
+
 interface PhotoUrl {
   raw: string
   full: string
@@ -8,9 +21,9 @@ interface PhotoUrl {
 }
 
 interface PhotoLink {
-  self: string,
-  html: string,
-  download: string,
+  self: string
+  html: string
+  download: string
   download_location: string
 }
 
@@ -19,6 +32,9 @@ export interface Photo {
   created_at: Date
   updated_at: Date
   blur_hash: string
-  urls: PhotoUrl,
-  links: PhotoLink,
+  description: string | undefined
+  alt_description: string | undefined
+  urls: PhotoUrl
+  links: PhotoLink
+  user: User
 }

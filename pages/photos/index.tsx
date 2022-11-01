@@ -12,7 +12,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
     "Cache-Control",
     "public, s-maxage=1, stale-while-revalidate=59",
   )
-  
+
   let data = null
 
   const params = {
