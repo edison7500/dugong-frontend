@@ -67,7 +67,7 @@ const Index = ({
     type: "article",
     images: [
       {
-        url: `https://og.jiaxin.im/api/og?slug=${data.title}`,
+        url: `https://og.jiaxin.im/api/og?slug=${data.slug}`,
         width: 600,
         height: 350,
         alt: `${data.title}`
