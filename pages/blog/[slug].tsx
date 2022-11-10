@@ -65,6 +65,14 @@ const Index = ({
     description: digest,
     url: `https://www.jiaxin.im/blog/${_data.slug}`,
     type: "article",
+    images: [
+      {
+        url: `https://og.jiaxin.im/api/og?slug=${data.title}`,
+        width: 600,
+        height: 350,
+        alt: `${data.title}`
+      }
+    ],
     article: {
       publishedTime: created_at.format(),
       modifiedTime: updated_at.format(),
