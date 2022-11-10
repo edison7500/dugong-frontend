@@ -2,7 +2,7 @@ import { Props } from "../../interface"
 import Meta from "../_meta"
 import { Header } from "./_header"
 import { Footer } from "./_footer"
-import { AnalyticsWrapper } from '../analytics';
+import { AnalyticsWrapper } from "../analytics"
 
 export const Layout = ({
   children,

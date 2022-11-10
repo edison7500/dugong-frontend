@@ -8,6 +8,11 @@ import { Photo } from "../../interface/photo"
 const unsplashUrl = "https://api.unsplash.com/users/truth6474/photos"
 
 export const getServerSideProps: GetServerSideProps = async context => {
+  context.res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=1, stale-while-revalidate=59",
+  )
+
   let data = null
 
   const params = {
