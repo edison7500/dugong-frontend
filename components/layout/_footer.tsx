@@ -20,7 +20,8 @@ export const Footer = () => {
           <Link
             href={
               "https://www.digitalocean.com/?refcode=6536aaf99f81&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"
-            } legacyBehavior>
+            }
+            legacyBehavior>
             <a target={"_blank"} rel="noreferrer" className="btn btn-link">
               <Image
                 src={
