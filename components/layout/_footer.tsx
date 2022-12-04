@@ -7,7 +7,7 @@ export const Footer = () => {
       <footer className="footer items-center my-16 px-32 bg-base-100 text-base-content">
         <div className="items-center grid-flow-col">
           <p className="text-md font-semibold">
-            <Link href="https://nextjs.org">
+            <Link href="https://nextjs.org" legacyBehavior>
               <a target="_blank" className="btn btn-link">
                 Power by Next.js.
               </a>
@@ -20,7 +20,8 @@ export const Footer = () => {
           <Link
             href={
               "https://www.digitalocean.com/?refcode=6536aaf99f81&utm_campaign=Referral_Invite&utm_medium=Referral_Program&utm_source=badge"
-            }>
+            }
+            legacyBehavior>
             <a target={"_blank"} rel="noreferrer" className="btn btn-link">
               <Image
                 src={

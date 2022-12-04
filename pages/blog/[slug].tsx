@@ -70,8 +70,8 @@ const Index = ({
         url: `https://og.jiaxin.im/api/og?slug=${data.slug}`,
         width: 600,
         height: 350,
-        alt: `${data.title}`
-      }
+        alt: `${data.title}`,
+      },
     ],
     article: {
       publishedTime: created_at.format(),
@@ -93,11 +93,9 @@ const Index = ({
           <div className="text-sm breadcrumbs">
             <ul>
               <li>
-                <Link href={"/"}>
-                  <a title="Python 观察员">
-                    <FontAwesomeIcon icon={faHome} className="mr-2" />
-                    Home
-                  </a>
+                <Link href={"/"} title="Python 观察员">
+                  <FontAwesomeIcon icon={faHome} className="mr-2" />
+                  Home
                 </Link>
               </li>
               <li>

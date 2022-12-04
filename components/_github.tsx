@@ -31,7 +31,7 @@ const Github = () => {
                 transition
                 cursor-pointer"
             key={r}>
-            <Link href={`https://github.com/edison7500/${r}`}>
+            <Link href={`https://github.com/edison7500/${r}`} legacyBehavior>
               <a
                 className={"font-extralight link link-hover"}
                 target="_blank"

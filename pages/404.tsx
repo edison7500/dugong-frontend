@@ -17,7 +17,7 @@ const Index = () => {
             Sorry, we couldn&apos;t find your page.
           </p>
           <div className="mt-5 flex flex-col justify-center items-center gap-2 sm:flex-row sm:gap-3">
-            <Link href={`/`}>
+            <Link href={`/`} legacyBehavior>
               <a
                 className="w-full sm:w-auto inline-flex justify-center items-center gap-2 rounded-md border border-transparent
              font-semibold text-blue-500 hover:text-blue-700 

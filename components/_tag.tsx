@@ -4,7 +4,7 @@ import { ITag } from "../interface"
 const Tag = (tag: ITag): JSX.Element => {
   return (
     <>
-      <Link href={`/tags/${tag.slug}`}>
+      <Link href={`/tags/${tag.slug}`} legacyBehavior>
         <a className="font-light mx-1 btn btn-outline btn-xs" title={tag.name}>
           {tag.name}
         </a>

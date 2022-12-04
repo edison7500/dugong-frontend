@@ -74,7 +74,7 @@ const Index = ({
 
           <div className="divider"></div>
 
-          <Link href={data.origin_link}>
+          <Link href={data.origin_link} legacyBehavior>
             <a
               target="_blank"
               rel="noreferrer"

@@ -22,7 +22,7 @@ const Tutorial = (tutorial: Tutorial): JSX.Element => {
           priority
         />
         <div className="p-6">
-          <Link href={`/tutorials/${tutorial.slug}`}>
+          <Link href={`/tutorials/${tutorial.slug}`} legacyBehavior>
             <a title={tutorial.title}>
               <h1 className="text-2l font-bold text-base-content link link-hover">
                 {tutorial.title}
