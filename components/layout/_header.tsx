@@ -54,7 +54,7 @@ export const Header = (): JSX.Element => {
               </div>
 
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                <Link href="/">
+                <Link href="/" legacyBehavior>
                   <a className="flex-shrink-0 flex items-center text-white hover:bg-neutral-700 px-3 rounded-md font-light">
                     <FontAwesomeIcon
                       icon={faPython}
@@ -67,7 +67,7 @@ export const Header = (): JSX.Element => {
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map(item => (
-                      <Link href={item.href} key={item.name}>
+                      <Link href={item.href} key={item.name} legacyBehavior>
                         <a
                           className={classNames({
                             classes: [

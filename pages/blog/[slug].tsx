@@ -93,11 +93,9 @@ const Index = ({
           <div className="text-sm breadcrumbs">
             <ul>
               <li>
-                <Link href={"/"}>
-                  <a title="Python 观察员">
+                <Link href={"/"} title="Python 观察员">
                     <FontAwesomeIcon icon={faHome} className="mr-2" />
                     Home
-                  </a>
                 </Link>
               </li>
               <li>
