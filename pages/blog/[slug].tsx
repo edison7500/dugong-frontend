@@ -81,7 +81,7 @@ const Index = ({
   }
 
   return (
-    <Layout title={`${_data.title} | Python 观察员`}>
+    <Layout title={`${_data.title} | Python 观察员 | www.jiaxin.im`}>
       <NextSeo
         title={`${_data.title} | Python 观察员`}
         description={digest}
