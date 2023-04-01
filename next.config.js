@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+})
+
 const securityHeaders = [
   {
     key: "X-DNS-Prefetch-Control",
@@ -27,7 +31,7 @@ const securityHeaders = [
   },
 ]
 
-module.exports = {
+module.exports = withBundleAnalyzer({
   trailingSlash: true,
   poweredByHeader: false,
   reactStrictMode: true,
@@ -39,7 +43,6 @@ module.exports = {
       "static.jiaxin.im",
       "web-platforms.sfo2.digitaloceanspaces.com",
       "gateway.storjshare.io",
-      "images.unsplash.com",
     ],
     formats: ["image/webp"],
     minimumCacheTTL: 2592000,
@@ -53,4 +56,4 @@ module.exports = {
       },
     ]
   },
-}
+})
