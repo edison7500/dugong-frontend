@@ -6,6 +6,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons"
 const Github = () => {
   const repos = [
     "dugong",
+    "dugong-frontend ",
     "django-leancloud-sms",
     "flask-oss",
     "django-sendcloud",

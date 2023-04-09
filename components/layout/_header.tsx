@@ -13,7 +13,7 @@ const classNames = ({ classes }: { classes: any[] }) => {
 }
 
 const navigation = [
-  { name: "教程", href: "/tutorials/", current: false, blank: false },
+  // { name: "教程", href: "/tutorials/", current: false, blank: false },
   {
     name: "ChainList",
     href: "https://chainlist.jiaxin.im",

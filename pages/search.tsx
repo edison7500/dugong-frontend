@@ -24,10 +24,8 @@ export const getServerSideProps: GetServerSideProps = async context => {
     data = await res.json()
 
     pageCount = Math.ceil(data.count / 30)
-    if (data.count % 30 > 0 && pageCount > 1) {
-      pageCount += 1
-    }
-
+    if (data.count % 30 > 0 && pageCount > 1) pageCount += 1
+    
     if (res.status === 404) {
       return {
         redirect: {
@@ -43,6 +41,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
   return {
     props: {
       results: data.results,
+      count: data.count,
       pageCount: pageCount,
       q: q,
     },
@@ -61,7 +60,7 @@ const Search: NextPage = (
       <div className="container flex justify-center mx-auto">
         <div className="w-full lg:w-8/12">
           <form
-            className="form-control max-w-2xl mx-auto mb-10"
+            className="form-control max-w-2xl mx-auto mb-10 mt-20"
             action={"/search/"}
             method={`GET`}>
             <label className="input-group input-group-lg">
