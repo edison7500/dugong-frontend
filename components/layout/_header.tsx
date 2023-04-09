@@ -94,12 +94,12 @@ export const Header = (): JSX.Element => {
                       onChange={handleCheck}
                     />
                     <FontAwesomeIcon
-                      icon={faMoon}
+                      icon={faSun}
                       data-set-theme="light"
                       className={"swap-on fill-current w-10 h-10"}
                     />
                     <FontAwesomeIcon
-                      icon={faSun}
+                      icon={faMoon}
                       data-set-theme="dark"
                       className={"swap-off fill-current w-10 h-10"}
                     />
