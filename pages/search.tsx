@@ -25,7 +25,7 @@ export const getServerSideProps: GetServerSideProps = async context => {
 
     pageCount = Math.ceil(data.count / 30)
     if (data.count % 30 > 0 && pageCount > 1) pageCount += 1
-    
+
     if (res.status === 404) {
       return {
         redirect: {
