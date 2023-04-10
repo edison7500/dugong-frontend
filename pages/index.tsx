@@ -9,6 +9,7 @@ import { Layout } from "../components/layout"
 import { IPost } from "../interface"
 import Post from "../components/post"
 import Pagination from "../components/_pagination"
+import { useState } from "react"
 
 const Asider = dynamic(() => import("../components/layout/_aside"), {
   suspense: true,
@@ -49,9 +50,12 @@ const Home: NextPage = ({
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const results = data.results
   const next = data.next
-  let pageCount = Math.ceil(data.count / 30)
+  // let pageCount = Math.ceil(data.count / 30)
+  const [pageCount, setPageCount] = useState(Math.ceil(data.count / 30))
+
   if (data.count % 30 > 0) {
-    pageCount += 1
+    // pageCount += 1
+    setPageCount(pageCount + 1)
   }
 
   return (

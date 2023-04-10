@@ -2,9 +2,10 @@ import { GetServerSideProps, InferGetServerSidePropsType } from "next"
 import { apiBaseUrl } from "../../lib/constants"
 import { Layout, Asider } from "../../components/layout"
 import { IPost } from "../../interface"
-import Post from "../../components/post"
 import { queryParams } from "../../lib/utils"
+import Post from "../../components/post"
 import Pagination from "../../components/_pagination"
+import { useState } from "react"
 
 export const getServerSideProps: GetServerSideProps = async context => {
   let data = null
@@ -32,9 +33,9 @@ const Tag = ({
   data,
 }: InferGetServerSidePropsType<typeof getServerSideProps>): JSX.Element => {
   const results = data.results
-  let pageCount = Math.ceil(data.count / 30)
+  const [pageCount, setPageCount] = useState(Math.ceil(data.count / 30))
   if (data.count % 30 > 0 && pageCount > 1) {
-    pageCount += 1
+    setPageCount(pageCount + 1)
   }
   return (
     <Layout>
