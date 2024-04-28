@@ -9,7 +9,7 @@ import { Layout } from "../components/layout"
 import { IPost } from "../interface"
 import Post from "../components/post"
 import Pagination from "../components/_pagination"
-import { useState } from "react"
+// import { useState } from "react"
 
 const Asider = dynamic(() => import("../components/layout/_aside"), {
   suspense: true,
